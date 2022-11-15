@@ -2,6 +2,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TranscriptReader
 {
@@ -14,19 +16,33 @@ public class TranscriptReader
       BufferedReader br = new BufferedReader(fr); //Creation of BufferedReader object
 
       String s;     
-      String searchTerm="6313";   // Input word to be searched
+   
       
+      List<String> searchTerms = new ArrayList<String>();
 
-      while((s=br.readLine())!=null)   //Reading Content from the file
+      try (BufferedReader br2 = new BufferedReader(new FileReader("searchTerms.txt"))) {
+      String line;
+      while ((line = br2.readLine()) != null) {
+       searchTerms.add(line);
+         }
+      }
+
+      while((s=br.readLine())!=null)   //Reading Content from the file until theres no more to read
       {
-         words=s.split(" ");  //Split the word using space
-          for (String word : words) 
-          {
-                 if (word.equals(searchTerm))   //Search for the given word
+         
+         words=s.split(" ");  //Split the words stored in the buffer using a space 
+         for (String word : words)  //Goes through every word in the buffer and sets it equal to "word" as it parses
+            {
+                 int i = 0;
+                 for(; i < searchTerms.size(); i++)   
                  {
-                   System.out.println(searchTerm);
+                   if(word.equals(searchTerms.get(i))){
+                     System.out.println(searchTerms.get(i));
+                   }
+                  
                  }
-          }
+                 
+            }
       }
       
          fr.close(); //Close the File Reader
