@@ -17,7 +17,6 @@ public class TranscriptReader
 
       String s;     
    
-      
       List<String> searchTerms = new ArrayList<String>();
 
       try (BufferedReader br2 = new BufferedReader(new FileReader("searchTerms.txt"))) {
@@ -33,6 +32,8 @@ public class TranscriptReader
          words=s.split(" ");  //Split the words stored in the buffer using a space 
          for (String word : words)  //Goes through every word in the buffer and sets it equal to "word" as it parses
             {
+                 //Compares every word in the transcipt to every word in our searchTerms.txt
+                 //to check if a class is within the transcipt
                  int i = 0;
                  for(; i < searchTerms.size(); i++)   
                  {
