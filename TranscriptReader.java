@@ -18,12 +18,14 @@ public class TranscriptReader
       String trackFile = " ";
       int nameCntr = 0;
 
+      //Gets the students masters track from user
       Scanner sc = new Scanner(System.in);
       System.out.print("Enter students Track: ");
 
       // String input
       String track = sc.nextLine();
-      //determines which classes the students needs depending on their study track
+      
+      //determines which core classes the students needs depending on their study track
       switch(track) {
          case "Data Sciences":
            trackFile = "Data Sciences.txt";
@@ -68,8 +70,8 @@ public class TranscriptReader
       FileReader fr = new FileReader(f1);  //Creation of File Reader object
       BufferedReader br = new BufferedReader(fr); //Creation of BufferedReader object
       
-
-      while((s=br.readLine())!=null)   //Reading Content from the file until theres no more to read
+      //Reading Content from the file until theres no more to read
+      while((s=br.readLine())!=null)   
       {
          //Gets the students name from transcipt
          if( s.contains("Name:") && (nameCntr != 1)){
@@ -77,6 +79,7 @@ public class TranscriptReader
             nameCntr = 1;
          }
          
+         //Gets the students ID, Plan, Major, and Track their on and formats them for output
          if( s.contains("Student ID:")){
             System.out.print(s+'\n');
             System.out.print(String.format("%-50s %s" , "Plan: Master", " "));
@@ -85,7 +88,9 @@ public class TranscriptReader
             System.out.println();
          }
 
+         //Finds all the strings in the transcipt that have "CS" in them (To get the students classes)
          if (s.contains("CS")){
+            //Adds each string that contains the classes information the the "classes" list array 
             classes.add(s);
             System.out.println(s);
          }
@@ -96,7 +101,7 @@ public class TranscriptReader
          fr.close(); //Close the File Reader
 
        
-            
+         //Counts how many core classes the student is taking / has taken    
          int classCntr = 0;
          for(int i = 0; i < classes.size(); i++){
             for(int j = 0; j < searchTerms.size(); j ++){
@@ -110,6 +115,7 @@ public class TranscriptReader
          System.out.println("Student has taken/taking these " + classCntr+"/5" + " required core classes ");
          System.out.println("----------------------------------");
 
+         //Prints out the core classes the student has taken 
          for(int i = 0; i < classes.size(); i++){
             for(int j = 0; j < searchTerms.size(); j ++){
                if(classes.get(i).contains(searchTerms.get(j))){
@@ -121,7 +127,6 @@ public class TranscriptReader
          }
 
          System.out.println();
-
          System.out.println("Student has taken/taking these required elective classes ");
          System.out.println("----------------------------------");
 
@@ -141,9 +146,9 @@ public class TranscriptReader
          // for(int i = 0; i < electives.size(); i++){
          //    System.out.println(electives.get(i));
          // }
-         
+         classes.get(0).contains();
    }
 
       
-
-}
+   
+}   
