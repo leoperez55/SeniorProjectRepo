@@ -146,7 +146,7 @@ public class TranscriptReader
          // for(int i = 0; i < electives.size(); i++){
          //    System.out.println(electives.get(i));
          // }
-         classes.get(0).contains();
+         //classes.get(0).contains();
    }
 
       
