@@ -87,14 +87,60 @@ public class TranscriptReader
 
          if (s.contains("CS")){
             classes.add(s);
-            //System.out.println(s);
+            System.out.println(s);
          }
 
 
       }
          System.out.println('\n');
          fr.close(); //Close the File Reader
-         
+
+       
+            
+         int classCntr = 0;
+         for(int i = 0; i < classes.size(); i++){
+            for(int j = 0; j < searchTerms.size(); j ++){
+               if(classes.get(i).contains(searchTerms.get(j))){
+                     classCntr++;
+               }
+               
+            }
+         }
+            
+         System.out.println("Student has taken/taking these " + classCntr+"/5" + " required core classes ");
+         System.out.println("----------------------------------");
+
+         for(int i = 0; i < classes.size(); i++){
+            for(int j = 0; j < searchTerms.size(); j ++){
+               if(classes.get(i).contains(searchTerms.get(j))){
+                  System.out.println(searchTerms.get(j));
+
+               }
+               
+            }
+         }
+
+         System.out.println();
+
+         System.out.println("Student has taken/taking these required elective classes ");
+         System.out.println("----------------------------------");
+
+         // List<String> electives = new ArrayList<>(); 
+         // electives.addAll(classes);
+
+         // for(int i = 0; i < classes.size(); i++){
+         //    for(int j = 0; j < searchTerms.size(); j ++){
+         //       if(classes.get(i).contains(searchTerms.get(j))){
+         //          electives.remove(i);
+         //          System.out.println("hello");
+         //       }
+               
+         //    }
+         // }
+
+         // for(int i = 0; i < electives.size(); i++){
+         //    System.out.println(electives.get(i));
+         // }
          
    }
 
