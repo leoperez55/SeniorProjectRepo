@@ -168,22 +168,6 @@ public class TranscriptReader
                System.out.println("The student got an C in " + coreClasses.get(i) );
                coreGpa = coreGpa + 2.000;
             }
-            // else if (coreClasses.get(i).contains(".000 C- ")){
-            //    System.out.println("The student got an C- in " + coreClasses.get(i) );
-            //    coreGpa = coreGpa + 4.00;
-            // }
-            // else if (coreClasses.get(i).contains(".000 D+ ")){
-            //    System.out.println("The student got an D+ in " + coreClasses.get(i) );
-            //    coreGpa = coreGpa + 4.00;
-            // }
-            // else if (coreClasses.get(i).contains(".000 D ")){
-            //    System.out.println("The student got an D in " + coreClasses.get(i) );
-            //    coreGpa = coreGpa + 4.00;
-            // }
-            // else if (coreClasses.get(i).contains(".000 D- ")){
-            //    System.out.println("The student got an D- in " + coreClasses.get(i) );
-            //    coreGpa = coreGpa + 4.00;
-            // }
             else if (coreClasses.get(i).contains(".000 P ")){
                System.out.println("The student Passed " + coreClasses.get(i) );
                classCntr--;
