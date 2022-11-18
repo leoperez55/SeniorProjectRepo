@@ -14,9 +14,11 @@ public class TranscriptReader
 
       List<String> searchTerms = new ArrayList<String>();
       List<String> classes = new ArrayList<String>();
+      List<String> coreClasses = new ArrayList<String>();
       String s;     
       String trackFile = " ";
       int nameCntr = 0;
+      double coreGpa = 0;
 
       //Gets the students masters track from user
       Scanner sc = new Scanner(System.in);
@@ -107,6 +109,7 @@ public class TranscriptReader
             for(int j = 0; j < searchTerms.size(); j ++){
                if(classes.get(i).contains(searchTerms.get(j))){
                      classCntr++;
+                     coreClasses.add(classes.get(i));
                }
                
             }
@@ -120,35 +123,91 @@ public class TranscriptReader
             for(int j = 0; j < searchTerms.size(); j ++){
                if(classes.get(i).contains(searchTerms.get(j))){
                   System.out.println(searchTerms.get(j));
-
+                  
                }
                
             }
          }
 
          System.out.println();
-         System.out.println("Student has taken/taking these required elective classes ");
+         System.out.println("Students grade they have recieved in the above classes ");
          System.out.println("----------------------------------");
 
-         // List<String> electives = new ArrayList<>(); 
-         // electives.addAll(classes);
+         
 
-         // for(int i = 0; i < classes.size(); i++){
-         //    for(int j = 0; j < searchTerms.size(); j ++){
-         //       if(classes.get(i).contains(searchTerms.get(j))){
-         //          electives.remove(i);
-         //          System.out.println("hello");
-         //       }
+         for(int i = 0; i < classCntr; i ++) {
+            if(coreClasses.get(i).contains(".000 A+ ")){
+               System.out.println("The student got an A+ in " + coreClasses.get(i) );
+               coreGpa = coreGpa + 4.00;
+            }
+            else if (coreClasses.get(i).contains(".000 A ")){
+               System.out.println("The student got an A in " + coreClasses.get(i) );
+               coreGpa = coreGpa + 4.000;
+            }
+            else if (coreClasses.get(i).contains(".000 A- ")){
+               System.out.println("The student got an A- in " + coreClasses.get(i) );
+               coreGpa = coreGpa + 3.670;
+            }
+            else if (coreClasses.get(i).contains(".000 B+ ")){
+               System.out.println("The student got an B+ in " + coreClasses.get(i) );
+               coreGpa = coreGpa + 3.330;
+            }
+            else if (coreClasses.get(i).contains(".000 B ")){
+               System.out.println("The student got an B in " + coreClasses.get(i) );
+               coreGpa = coreGpa + 3.000;
+            }
+            else if (coreClasses.get(i).contains(".000 B- ")){
+               System.out.println("The student got an B- in " + coreClasses.get(i) );
+               coreGpa = coreGpa + 2.670;
+            }
+            else if (coreClasses.get(i).contains(".000 C+ ")){
+               System.out.println("The student got an C+ in " + coreClasses.get(i) );
+               coreGpa = coreGpa + 2.330;
+            }
+            else if (coreClasses.get(i).contains(".000 C ")){
+               System.out.println("The student got an C in " + coreClasses.get(i) );
+               coreGpa = coreGpa + 2.000;
+            }
+            // else if (coreClasses.get(i).contains(".000 C- ")){
+            //    System.out.println("The student got an C- in " + coreClasses.get(i) );
+            //    coreGpa = coreGpa + 4.00;
+            // }
+            // else if (coreClasses.get(i).contains(".000 D+ ")){
+            //    System.out.println("The student got an D+ in " + coreClasses.get(i) );
+            //    coreGpa = coreGpa + 4.00;
+            // }
+            // else if (coreClasses.get(i).contains(".000 D ")){
+            //    System.out.println("The student got an D in " + coreClasses.get(i) );
+            //    coreGpa = coreGpa + 4.00;
+            // }
+            // else if (coreClasses.get(i).contains(".000 D- ")){
+            //    System.out.println("The student got an D- in " + coreClasses.get(i) );
+            //    coreGpa = coreGpa + 4.00;
+            // }
+            else if (coreClasses.get(i).contains(".000 P ")){
+               System.out.println("The student Passed " + coreClasses.get(i) );
+               classCntr--;
                
-         //    }
-         // }
+            }
+            else if (coreClasses.get(i).contains(".000 F ")){
+               System.out.println("The student Failed " + coreClasses.get(i) );
+               coreGpa = coreGpa + 0.000;
+            }
+            else {
+               System.out.println("The student is in progress of taking " + coreClasses.get(i));
+               coreGpa = coreGpa + 4.000;
+            }
 
-         // for(int i = 0; i < electives.size(); i++){
-         //    System.out.println(electives.get(i));
-         // }
-         //classes.get(0).contains();
-   }
-
-      
+         }
    
+   
+         System.out.println("---------------------------------");
+         System.out.println("Core GPA: " + coreGpa/classCntr);
+         System.out.println("Elective GPA: " );
+         System.out.println("Combined GPA: ");
+
+   
+   
+      }
+
 }   
