@@ -223,10 +223,13 @@ public class DegreeAuditTool {
         JLabel grade1Label = new JLabel("      Grade");
 
         
-
+        //Pink info labels inbetween sections
         JLabel infoLabel = new JLabel();
         infoLabel.setText("CORE COURSES (15 Credit Hours)    3.19 Grade Point Average Required");
         infoLabel.setHorizontalAlignment(JLabel.CENTER);
+        JLabel infoLabel2 = new JLabel();
+        infoLabel2.setText("FIVE APPROVED 6000 LEVEL ELECTIVES      (15 * Credit Hours)       3.0 Grade Point Average");
+        infoLabel2.setHorizontalAlignment(JLabel.CENTER);
 
 
 		JLabel label_1 = new JLabel();
@@ -290,6 +293,11 @@ public class DegreeAuditTool {
         infoPanel.setBackground(Color.PINK);
         infoPanel.setBounds(0, 30, 730, 30);
         infoPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel infoPanel2 = new JPanel();
+        infoPanel2.setBackground(Color.PINK);
+        infoPanel2.setBounds(0, 235, 730, 30);
+        infoPanel2.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+
 
 
 		JPanel firstClassPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
@@ -403,6 +411,7 @@ public class DegreeAuditTool {
         labelPanel.add(transferLabel);
         labelPanel.add(grade1Label);
         infoPanel.add(infoLabel);
+        infoPanel2.add(infoLabel2);
         firstClassPanel.add(label_1);
         firstClassPanelGrade.add(gradeBox);
         firstClassPanelSemester.add(semesterBox);
@@ -450,6 +459,7 @@ public class DegreeAuditTool {
 
         frame.add(labelPanel);
         frame.add(infoPanel);
+        frame.add(infoPanel2);
         frame.add(firstClassPanel);
         frame.add(firstClassPanelTransfer);
         frame.add(firstClassPanelSemester);
