@@ -11,6 +11,7 @@ import java.awt.BorderLayout;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.util.*;
 
 
 public class DegreeAuditTool {
@@ -22,12 +23,18 @@ public class DegreeAuditTool {
     public static String[] grades = {"A+","A","A-","B+","B","B-","C+","C","P","F","I"};
     public static String[] semester = {"21F","21S","21U","22F","22S","22U","23F","23S","23U","24F","24S","24U"};
     public static String[] transfer = {" ","F/T"};
+    //intitalize an arrayList
+    public static ArrayList<String> thirdClass = new ArrayList<String>();
+    public static ArrayList<String> fourthClass = new ArrayList<String>();
+    public static ArrayList<String> fifthClass = new ArrayList<String>();
 
 
 
 
 	public static void main(String[] args) {
 		
+       
+
         // //Displays dialogue box to enter student Name
 		// String studentName = JOptionPane.showInputDialog(null,"Enter students name","UTD Degree Audit Tool", JOptionPane.PLAIN_MESSAGE);
 		// JOptionPane.showMessageDialog(null, "You entered "+studentName+" as the student's name","UTD Degree Audit Tool",JOptionPane.PLAIN_MESSAGE);
@@ -48,69 +55,134 @@ public class DegreeAuditTool {
         tracks, 
         tracks[0]);
 		
-        String class_0 = "", class_1 = "", class_2 = "", class_3 = "", class_4 = ""; 
+        //Initializes all classes with blank strings
+        String class_5 = "", class_1 = "", class_2 = "", class_3 = "", class_4 = ""; 
+        boolean fifth  = true;
+        boolean fourth = true;
+        boolean third  = true;
 
         switch (studentTrack) {
             
             case "Data Sciences":   
-                                    class_0 = "CS 6313 Statistical Methods for Data Science";
-                                    class_1 = "CS 6350 Big Data Management and Analytics";
-                                    class_2 = "CS 6363 Design and Analysis of Computer Algorithms";
-                                    class_3 = "CS 6375 Machine Learning";
-                                    class_4 = "CS 6320 Natural Language Processing"; //Choosing course
+                                    class_1 = "CS 6313 Statistical Methods for Data Science";
+                                    class_2 = "CS 6350 Big Data Management and Analytics";
+                                    class_3 = "CS 6363 Design and Analysis of Computer Algorithms";
+                                    class_4 = "CS 6375 Machine Learning";
+
+                                    third = false;  //student cannot choose their third class
+                                    fourth = false; //student cannot choose their fourth class
+
+                                    //student has option to choose their 5th class, populated arrayList "fifthClass" with optional classes
+                                    fifthClass.add("CS 6320 Natural Language Processing");
+                                    fifthClass.add("CS 6327 Video Analytics");
+                                    fifthClass.add("CS 6347 Statistical Methods in AI and Machine Learning");
+                                    fifthClass.add("CS 6360 Database Design");
+                                    fifthClass.add("CS 6301 Special Topics in Computer Science [when topic is Social Network Analytics");
                                     break;
 
             case "Cyber Security":  
-                                    class_0 = "CS 6324 Information Security";
-                                    class_1 = "CS 6363 Design and Analysis of Computer Algorithms";
-                                    class_2 = "CS 6378 Advanced Operating Systems";
-                                    class_3 = "CS 6332 Systems Security and Malicious Code Analysis"; //Choosing course
-                                    class_4 = "CS 6348 Data and Applications Security"; //Choosing course
+                                    class_1 = "CS 6324 Information Security";
+                                    class_2 = "CS 6363 Design and Analysis of Computer Algorithms";
+                                    class_3 = "CS 6378 Advanced Operating Systems";
+
+                                    //student has option to choose their 4th class, populated arrayList "fourthClass" with optional classes
+                                    fourthClass.add("CS 6332 Systems Security and Malicious Code Analysis");
+                                    fourthClass.add("CS 6348 Data and Applications Security");
+                                    fourthClass.add("CS 6349 Network Security");
+                                    fourthClass.add("CS 6377 Introduction to Cryptography");
+                                    //student has option to choose their 5th class, populated arrayList "fifthClass" with optional classes
+                                    fifthClass.add("CS 6332 Systems Security and Malicious Code Analysis");
+                                    fifthClass.add("CS 6348 Data and Applications Security");
+                                    fifthClass.add("CS 6349 Network Security");
+                                    fifthClass.add("CS 6377 Introduction to Cryptography");
                                     break;
 
             case "Intelligent Systems":  
                                     
-                                    class_0 = "CS 6320 Natural Language Processing";
-                                    class_1 = "CS 6363 Design and Analysis of Computer Algorithms";
-                                    class_2 = "CS 6364 Artificial Intelligence";
-                                    class_3 = "CS 6375 Machine Learning";
-                                    class_4 = "CS 6360 Database Design"; //Choosing course
+                                    class_1 = "CS 6320 Natural Language Processing";
+                                    class_2 = "CS 6363 Design and Analysis of Computer Algorithms";
+                                    class_3 = "CS 6364 Artificial Intelligence";
+                                    class_4 = "CS 6375 Machine Learning";
+                                    
+                                    third = false;  //student cannot choose their third class
+                                    fourth = false; //student cannot choose their fourth class
+
+                                    //student has option to choose their 5th class, populated arrayList "fifthClass" with optional classes
+                                    fifthClass.add("CS 6360 Database Design");
+                                    fifthClass.add("CS 6378 Advanced Operating Systems");
+                                 
                                     break;
 
             case "Interactive Computing": 
 
-                                    class_0 = "CS 6326 Human Computer Interactions";
-                                    class_1 = "CS 6363 Design and Analysis of Computer Algorithms";
-                                    class_2 = "CS 6323 Computer Animation and Gaming"; //Choosing course
-                                    class_3 = "CS 6328 Modeling and Simulation"; //Choosing course
-                                    class_4 = "CS 6331 Multimedia Systems"; //Choosing course
+                                    class_1 = "CS 6326 Human Computer Interactions";
+                                    class_2 = "CS 6363 Design and Analysis of Computer Algorithms";
+                                    
+
+                                    //student has option to choose their 3rd class, populated arrayList "thirdClass" with optional classes
+                                    thirdClass.add("CS 6323 Computer Animation and Gaming");
+                                    thirdClass.add("CS 6328 Modeling and Simulation");
+                                    thirdClass.add("CS 6331 Multimedia Systems");
+                                    thirdClass.add("CS 6334 Virtual Reality");
+                                    thirdClass.add("CS 6366 Computer Graphics");
+                                    //student has option to choose their 4th class, populated arrayList "fourthClass" with optional classes
+                                    fourthClass.add("CS 6323 Computer Animation and Gaming");
+                                    fourthClass.add("CS 6328 Modeling and Simulation");
+                                    fourthClass.add("CS 6331 Multimedia Systems");
+                                    fourthClass.add("CS 6334 Virtual Reality");
+                                    fourthClass.add("CS 6366 Computer Graphics");
+                                    //student has option to choose their 5th class, populated arrayList "fifthClass" with optional classes
+                                    fifthClass.add("CS 6323 Computer Animation and Gaming");
+                                    fifthClass.add("CS 6328 Modeling and Simulation");
+                                    fifthClass.add("CS 6331 Multimedia Systems");
+                                    fifthClass.add("CS 6334 Virtual Reality");
+                                    fifthClass.add("CS 6366 Computer Graphics");
+
                                     break;
 
             case "Networks and Telecommunications": 
 
-                                    class_0 = "CS 6352 Performance of Computer Systems and Networks";
-                                    class_1 = "CS 6363 Design and Analysis of Computer Algorithms";
-                                    class_2 = "CS 6378 Advanced Operating Systems";
-                                    class_3 = "CS 6385 Algorithmic Aspects of Telecommunication Networks";
-                                    class_4 = "CS 6390 Advanced Computer Networks";
+                                    class_1 = "CS 6352 Performance of Computer Systems and Networks";
+                                    class_2 = "CS 6363 Design and Analysis of Computer Algorithms";
+                                    class_3 = "CS 6378 Advanced Operating Systems";
+                                    class_4 = "CS 6385 Algorithmic Aspects of Telecommunication Networks";
+                                    class_5 = "CS 6390 Advanced Computer Networks";
+                                    third = false;  //student cannot choose their third class
+                                    fourth = false; //student cannot choose their fourth class
+                                    fifth = false; //student cannot choose their fifth class
                                     break;
 
             case "Systems Track": 
 
-                                    class_0 = "CS 6304 Computer Architecture";
-                                    class_1 = "CS 6363 Design and Analysis of Computer Algorithms";
-                                    class_2 = "CS 6378 Advanced Operating Systems";
-                                    class_3 = "CS 6396 Real-Time Systems";
-                                    class_4 = "CS 6349 Network Security"; //Choosing course
+                                    class_1 = "CS 6304 Computer Architecture";
+                                    class_2 = "CS 6363 Design and Analysis of Computer Algorithms";
+                                    class_3 = "CS 6378 Advanced Operating Systems";
+                                    class_4 = "CS 6396 Real-Time Systems";
+                                    third = false;  //student cannot choose their third class
+                                    fourth = false; //student cannot choose their fourth class
+
+                                    fifthClass.add("CS 6349 Network Security");
+                                    fifthClass.add("CS 6376 Parallel Processing");
+                                    fifthClass.add("CS 6380 Distributed Computing");
+                                    fifthClass.add("CS 6397 Synthesis and Optimization of High-Performance Systems");
                                     break;
 
             case "Traditional Computer Science":
                                     
-                                    class_0 = "CS 6363 Design and Analysis of Computer Algorithms";
-                                    class_1 = "CS 6378 Advanced Operating Systems";
-                                    class_2 = "CS 6390 Advanced Computer Networks";
-                                    class_3 = "CS 6353 Compiler Construction"; //Choosing course
-                                    class_4 = "CS 6360 Database Design"; //Choosing course
+                                    class_1 = "CS 6363 Design and Analysis of Computer Algorithms";
+                                    class_2 = "CS 6378 Advanced Operating Systems";
+                                    class_3 = "CS 6390 Advanced Computer Networks";
+                                    
+                                    third = false;  //student cannot choose their third class
+                                    
+                                    //student has option to choose their 4th class, populated arrayList "fourthClass" with optional classes
+                                    fourthClass.add("CS 6353 Compiler Construction");
+                                    fourthClass.add("CS 6360 Database Design");
+                                    fourthClass.add("CS 6371 Advanced Programming Languages");
+                                    //student has option to choose their 5th class, populated arrayList "fifthClass" with optional classes
+                                    fifthClass.add("CS 6353 Compiler Construction");
+                                    fifthClass.add("CS 6360 Database Design");
+                                    fifthClass.add("CS 6371 Advanced Programming Languages");                   
                                     break;
 
             default: System.out.print("Invalid");
@@ -135,6 +207,12 @@ public class DegreeAuditTool {
         JComboBox transferBox3 = new JComboBox(transfer);
         JComboBox transferBox4 = new JComboBox(transfer);
         JComboBox transferBox5 = new JComboBox(transfer);
+
+
+        //Combo boxes for if the student can choose thier classes
+        JComboBox thirdClassBox = new JComboBox(thirdClass.toArray());
+        JComboBox fourthClassBox = new JComboBox(fourthClass.toArray());
+        JComboBox fifthClassBox = new JComboBox(fifthClass.toArray());
         
 
         //### Creating Labels ###
@@ -145,20 +223,15 @@ public class DegreeAuditTool {
         JLabel grade1Label = new JLabel("      Grade");
 
         
+
         JLabel infoLabel = new JLabel();
         infoLabel.setText("CORE COURSES (15 Credit Hours)    3.19 Grade Point Average Required");
         infoLabel.setHorizontalAlignment(JLabel.CENTER);
 
 
-		JLabel label_0 = new JLabel();
-		label_0.setText(class_0);
-        label_0.setVerticalAlignment(JLabel.TOP);
-		label_0.setHorizontalAlignment(JLabel.LEFT);
-
-
-        JLabel label_1 = new JLabel();
+		JLabel label_1 = new JLabel();
 		label_1.setText(class_1);
-		label_1.setVerticalAlignment(JLabel.TOP);
+        label_1.setVerticalAlignment(JLabel.TOP);
 		label_1.setHorizontalAlignment(JLabel.LEFT);
 
 
@@ -169,16 +242,39 @@ public class DegreeAuditTool {
 
 
         JLabel label_3 = new JLabel();
-		label_3.setText(class_3);
-		label_3.setVerticalAlignment(JLabel.TOP);
-		label_3.setHorizontalAlignment(JLabel.LEFT);
+		//If student has a choice of choosing their 3rd class this will print 
+        //else the 3rd class cannot be chosen and will be displayed
+		if(third == true){
+            System.out.println("third Class option");
+        }else{
+            label_3.setText(class_3);
+            label_3.setVerticalAlignment(JLabel.TOP);
+            label_3.setHorizontalAlignment(JLabel.LEFT);
+        }
 
 
         JLabel label_4 = new JLabel();
-		label_4.setText(class_4);
-		label_4.setVerticalAlignment(JLabel.TOP);
-		label_4.setHorizontalAlignment(JLabel.LEFT);
-
+        //If student has a choice of choosing their 4th class this will print 
+        //else the 4th class cannot be chosen and will be displayed
+		if(fourth == true){
+            System.out.println("fourth Class option");
+        }else{
+            label_4.setText(class_4);
+            label_4.setVerticalAlignment(JLabel.TOP);
+            label_4.setHorizontalAlignment(JLabel.LEFT);
+        }
+  
+   
+        JLabel label_5 = new JLabel();
+        //If student has a choice of choosing their 5th class this will print 
+        //else the 5th class cannot be chosen and will be displayed
+        if(fifth == true){
+            System.out.println("Fifth Class option found");
+        }else{
+            label_5.setText(class_5);
+            label_5.setVerticalAlignment(JLabel.TOP);
+            label_5.setHorizontalAlignment(JLabel.LEFT);
+        }
 
 		
 		
@@ -271,7 +367,7 @@ public class DegreeAuditTool {
         JPanel fifthClassPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
 		//fifthClassPanel.setBackground(Color.pink);
 		fifthClassPanel.setBounds(0, 200, 350, 35);
-        fifthClassPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
+        fifthClassPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         JPanel fifthClassPanelSemester = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		//fifthClassPanelSemester.setBackground(Color.blue);
 		fifthClassPanelSemester.setBounds(350, 200, 130, 35);
@@ -307,23 +403,47 @@ public class DegreeAuditTool {
         labelPanel.add(transferLabel);
         labelPanel.add(grade1Label);
         infoPanel.add(infoLabel);
-        firstClassPanel.add(label_0);
+        firstClassPanel.add(label_1);
         firstClassPanelGrade.add(gradeBox);
         firstClassPanelSemester.add(semesterBox);
         firstClassPanelTransfer.add(transferBox);
-        secondClassPanel.add(label_1);
+        secondClassPanel.add(label_2);
         secondClassPanelSemester.add(semesterBox2);
         secondClassPanelTransfer.add(transferBox2);
         secondClassPanelGrade.add(gradeBox2);
-        thirdClassPanel.add(label_2);
+        
+        //Determines if a combobox for option classes needs to be added
+        if(third == true){
+            thirdClassPanel.add(thirdClassBox);
+        }else{
+        thirdClassPanel.add(label_3);
+        System.out.println("No optional 3rd Class");
+        }
+        
         thirdClassPanelSemester.add(semesterBox3);
         thirdClassPanelTransfer.add(transferBox3);
         thirdClassPanelGrade.add(gradeBox3);
-        fourthClassPanel.add(label_3);
+        
+        //Determines if a combobox for option classes needs to be added
+        if(fourth == true){
+            fourthClassPanel.add(fourthClassBox);
+        }else{
+        fourthClassPanel.add(label_4);
+        System.out.println("No Optional 4th Class");
+        }
+        
         fourthClassPanelSemester.add(semesterBox4);
         fourthClassPanelTransfer.add(transferBox4);
         fourthClassPanelGrade.add(gradeBox4);
-        fifthClassPanel.add(label_4);
+       
+        //Determines if a combobox for option classes needs to be added
+        if(fifth == true){
+            fifthClassPanel.add(fifthClassBox);
+        }else{
+        fifthClassPanel.add(label_5);
+        System.out.println("No Optional 5th Class");
+        }
+        
         fifthClassPanelSemester.add(semesterBox5);
         fifthClassPanelTransfer.add(transferBox5);
         fifthClassPanelGrade.add(gradeBox5);
