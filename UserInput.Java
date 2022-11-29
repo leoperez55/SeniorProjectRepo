@@ -20,20 +20,24 @@ public class DegreeAuditTool {
                                             "Networks and Telecommunications", "Systems Track", "Traditional Computer Science"};
 
     public static String[] grades = {"A+","A","A-","B+","B","B-","C+","C","P","F","I"};
+    public static String[] semester = {"21F","21S","21U","22F","22S","22U","23F","23S","23U","24F","24S","24U"};
+    public static String[] transfer = {" ","F/T"};
+
+
 
 
 	public static void main(String[] args) {
 		
-        //Displays dialogue box to enter student Name
-		String studentName = JOptionPane.showInputDialog(null,"Enter students name","UTD Degree Audit Tool", JOptionPane.PLAIN_MESSAGE);
-		JOptionPane.showMessageDialog(null, "You entered "+studentName+" as the student's name","UTD Degree Audit Tool",JOptionPane.PLAIN_MESSAGE);
+        // //Displays dialogue box to enter student Name
+		// String studentName = JOptionPane.showInputDialog(null,"Enter students name","UTD Degree Audit Tool", JOptionPane.PLAIN_MESSAGE);
+		// JOptionPane.showMessageDialog(null, "You entered "+studentName+" as the student's name","UTD Degree Audit Tool",JOptionPane.PLAIN_MESSAGE);
         
-        // JOptionPane.showMessageDialog(null, "You entered "+studentName+" as the student's name","UTD Degree Audit Tool",JOptionPane.INFORMATION_MESSAGE,
-        // new ImageIcon(Main.class.getResource("utd icon.png")));   EXAMPLE WITH IMAGE.
+        // // JOptionPane.showMessageDialog(null, "You entered "+studentName+" as the student's name","UTD Degree Audit Tool",JOptionPane.INFORMATION_MESSAGE,
+        // // new ImageIcon(Main.class.getResource("utd icon.png")));   EXAMPLE WITH IMAGE.
 		
-        //Displays dialogue box to enter student ID
-		int studentID = Integer.parseInt(JOptionPane.showInputDialog(null,"Enter student ID ","UTD Degree Audit Tool",JOptionPane.PLAIN_MESSAGE));
-		JOptionPane.showMessageDialog(null, "You entered "+studentID);
+        // //Displays dialogue box to enter student ID
+		// int studentID = Integer.parseInt(JOptionPane.showInputDialog(null,"Enter student ID ","UTD Degree Audit Tool",JOptionPane.PLAIN_MESSAGE));
+		// JOptionPane.showMessageDialog(null, "You entered "+studentID);
 
         //Displays the comboBox for choosing students Track
         String studentTrack = (String) JOptionPane.showInputDialog(null, 
@@ -119,12 +123,37 @@ public class DegreeAuditTool {
         JComboBox gradeBox3 = new JComboBox(grades);
         JComboBox gradeBox4 = new JComboBox(grades);
         JComboBox gradeBox5 = new JComboBox(grades);
-      
+
+        JComboBox semesterBox = new JComboBox(semester);
+        JComboBox semesterBox2 = new JComboBox(semester);
+        JComboBox semesterBox3 = new JComboBox(semester);
+        JComboBox semesterBox4 = new JComboBox(semester);
+        JComboBox semesterBox5 = new JComboBox(semester);
+       
+        JComboBox transferBox = new JComboBox(transfer);
+        JComboBox transferBox2 = new JComboBox(transfer);
+        JComboBox transferBox3 = new JComboBox(transfer);
+        JComboBox transferBox4 = new JComboBox(transfer);
+        JComboBox transferBox5 = new JComboBox(transfer);
+        
 
         //### Creating Labels ###
+        JLabel CourseNumberLabel = new JLabel("Course Number");
+        JLabel CourseTitleLabel = new JLabel("Course Title");
+        JLabel utdSemesterLabel = new JLabel("                  UTD Semester");  //Spaced out for formatting Purposes
+        JLabel transferLabel = new JLabel("   Transfer");
+        JLabel grade1Label = new JLabel("      Grade");
+
+        
+        
+        JLabel infoLabel = new JLabel();
+        infoLabel.setText("CORE COURSES (15 Credit Hours)    3.19 Grade Point Average Required");
+        infoLabel.setHorizontalAlignment(JLabel.CENTER);
+
+
 		JLabel label_0 = new JLabel();
 		label_0.setText(class_0);
-		label_0.setVerticalAlignment(JLabel.TOP);
+        label_0.setVerticalAlignment(JLabel.TOP);
 		label_0.setHorizontalAlignment(JLabel.LEFT);
 
 
@@ -151,54 +180,116 @@ public class DegreeAuditTool {
 		label_4.setVerticalAlignment(JLabel.TOP);
 		label_4.setHorizontalAlignment(JLabel.LEFT);
 
-        JLabel gradeLabel = new JLabel("Grade:");  //Is it possible to share same label?
-        JLabel gradeLabel2 = new JLabel("Grade:");  //Is it possible to share same label?
-        JLabel gradeLabel3 = new JLabel("Grade:");  //Is it possible to share same label?
-        JLabel gradeLabel4 = new JLabel("Grade:");  //Is it possible to share same label?
-        JLabel gradeLabel5 = new JLabel("Grade:");  //Is it possible to share same label?
-
 
 		
 		
 
         //### Creating Panels ###
+        JPanel labelPanel = new JPanel(new FlowLayout(FlowLayout.LEADING,50,0));
+        labelPanel.setBackground(Color.YELLOW);
+        labelPanel.setBounds(0,0,730,30);
+        labelPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
+
+
+        JPanel infoPanel = new JPanel();
+        infoPanel.setBackground(Color.PINK);
+        infoPanel.setBounds(0, 30, 730, 30);
+        infoPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+
+
 		JPanel redPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
 		redPanel.setBackground(Color.red);
-		redPanel.setBounds(0, 0, 400, 35);
-        JPanel redPanelGrade = new JPanel(new FlowLayout(FlowLayout.LEADING));
+		redPanel.setBounds(0, 60, 350, 35);
+        redPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel redPanelSemester = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		redPanelSemester.setBackground(Color.blue);
+		redPanelSemester.setBounds(350, 60, 130, 35);
+        redPanelSemester.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel redPanelTransfer = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		redPanelTransfer.setBackground(Color.red);
+		redPanelTransfer.setBounds(480, 60, 120, 35);
+        redPanelTransfer.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel redPanelGrade = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		redPanelGrade.setBackground(Color.blue);
-		redPanelGrade.setBounds(400, 0, 120, 35);
+		redPanelGrade.setBounds(600, 60, 120, 35);
+        redPanelGrade.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 
-		JPanel bluePanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
-		bluePanel.setBackground(Color.blue);
-		bluePanel.setBounds(0, 100, 400, 35);
-        JPanel bluePanelGrade = new JPanel(new FlowLayout(FlowLayout.LEADING));
-		bluePanelGrade.setBackground(Color.red);
-		bluePanelGrade.setBounds(400, 100, 120, 35);
+
+
+		JPanel orangePanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
+		orangePanel.setBackground(Color.ORANGE);
+		orangePanel.setBounds(0, 95, 350, 35);
+        orangePanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel orangePanelSemester = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		orangePanelSemester.setBackground(Color.blue);
+		orangePanelSemester.setBounds(350, 95, 130, 35);
+        orangePanelSemester.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel orangePanelTransfer = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		orangePanelTransfer.setBackground(Color.red);
+		orangePanelTransfer.setBounds(480, 95, 120, 35);
+        orangePanelTransfer.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel orangePanelGrade = new JPanel(new FlowLayout(FlowLayout.CENTER));                                                           
+		orangePanelGrade.setBackground(Color.blue);
+		orangePanelGrade.setBounds(600, 95, 120, 35);
+        orangePanelGrade.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+
+
+
+
 		
 		JPanel greenPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
 		greenPanel.setBackground(Color.green);
-		greenPanel.setBounds(0, 200, 400, 35);
-        JPanel greenPanelGrade = new JPanel(new FlowLayout(FlowLayout.LEADING));
-		greenPanelGrade.setBackground(Color.yellow);
-		greenPanelGrade.setBounds(400, 200, 120, 35);
+		greenPanel.setBounds(0, 130, 350, 35);
+        greenPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel greenPanelSemester = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		greenPanelSemester.setBackground(Color.blue);
+		greenPanelSemester.setBounds(350, 130, 130, 35);
+        greenPanelSemester.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel greenPanelTransfer = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		greenPanelTransfer.setBackground(Color.red);
+		greenPanelTransfer.setBounds(480, 130, 120, 35);
+        greenPanelTransfer.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel greenPanelGrade = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		greenPanelGrade.setBackground(Color.blue);
+		greenPanelGrade.setBounds(600, 130, 120, 35);
+        greenPanelGrade.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+
+
+
 
         JPanel yellowPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
 		yellowPanel.setBackground(Color.yellow);
-		yellowPanel.setBounds(0, 300, 400, 35);
-        JPanel yellowPanelGrade = new JPanel(new FlowLayout(FlowLayout.LEADING));
-		yellowPanelGrade.setBackground(Color.green);
-		yellowPanelGrade.setBounds(400, 300, 120, 35);
+		yellowPanel.setBounds(0, 165, 350, 35);
+        yellowPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel yellowPanelSemester = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		yellowPanelSemester.setBackground(Color.blue);
+		yellowPanelSemester.setBounds(350, 165, 130, 35);
+        yellowPanelSemester.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel yellowPanelTransfer = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		yellowPanelTransfer.setBackground(Color.red);
+		yellowPanelTransfer.setBounds(480, 165, 120, 35);
+        yellowPanelTransfer.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel yellowPanelGrade = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		yellowPanelGrade.setBackground(Color.blue);
+		yellowPanelGrade.setBounds(600, 165, 120, 35);
+        yellowPanelGrade.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 
         JPanel pinkPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
 		pinkPanel.setBackground(Color.pink);
-		pinkPanel.setBounds(0, 400, 400, 35);
-        JPanel pinkPanelGrade = new JPanel(new FlowLayout(FlowLayout.LEADING));
-		pinkPanelGrade.setBackground(Color.green);
-		pinkPanelGrade.setBounds(400, 400, 120, 35);
-
-
-
+		pinkPanel.setBounds(0, 200, 350, 35);
+        pinkPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel pinkPanelSemester = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		pinkPanelSemester.setBackground(Color.blue);
+		pinkPanelSemester.setBounds(350, 200, 130, 35);
+        pinkPanelSemester.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel pinkPanelTransfer = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		pinkPanelTransfer.setBackground(Color.red);
+		pinkPanelTransfer.setBounds(480, 200, 120, 35);
+        pinkPanelTransfer.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel pinkPanelGrade = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		pinkPanelGrade.setBackground(Color.blue);
+		pinkPanelGrade.setBounds(600, 200, 120, 35);
+        pinkPanelGrade.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 
 
         //### Creating JFrame ###
@@ -211,35 +302,64 @@ public class DegreeAuditTool {
         frame.setIconImage(image.getImage()); //change icon of frame
         frame.setSize(750,750); //sets the x-dimension, and y-dimension of frame 
         frame.setVisible(true); //make frame visible 
+        //frame.getContentPane().setBackground(new Color(122.0f, 122.0f, 122.0f, 0.1f));
+
         
+
+        labelPanel.add(utdSemesterLabel);
+        labelPanel.add(CourseNumberLabel);
+        labelPanel.add(CourseTitleLabel);
+        labelPanel.add(utdSemesterLabel);
+        labelPanel.add(transferLabel);
+        labelPanel.add(grade1Label);
+        infoPanel.add(infoLabel);
         redPanel.add(label_0);
-        redPanelGrade.add(gradeLabel);
         redPanelGrade.add(gradeBox);
-        bluePanel.add(label_1);
-        bluePanelGrade.add(gradeLabel2);
-        bluePanelGrade.add(gradeBox2);
+        redPanelSemester.add(semesterBox);
+        redPanelTransfer.add(transferBox);
+        orangePanel.add(label_1);
+        orangePanelSemester.add(semesterBox2);
+        orangePanelTransfer.add(transferBox2);
+        orangePanelGrade.add(gradeBox2);
         greenPanel.add(label_2);
-        greenPanelGrade.add(gradeLabel3);
+        greenPanelSemester.add(semesterBox3);
+        greenPanelTransfer.add(transferBox3);
         greenPanelGrade.add(gradeBox3);
         yellowPanel.add(label_3);
-        yellowPanelGrade.add(gradeLabel4);
+        yellowPanelSemester.add(semesterBox4);
+        yellowPanelTransfer.add(transferBox4);
         yellowPanelGrade.add(gradeBox4);
         pinkPanel.add(label_4);
-        pinkPanelGrade.add(gradeLabel5);
+        pinkPanelSemester.add(semesterBox5);
+        pinkPanelTransfer.add(transferBox5);
         pinkPanelGrade.add(gradeBox5);
 
+        frame.add(labelPanel);
+        frame.add(infoPanel);
         frame.add(redPanel);
+        frame.add(redPanelTransfer);
+        frame.add(redPanelSemester);
+        frame.add(redPanelTransfer);
+        frame.add(redPanelSemester);
         frame.add(redPanelGrade);
-		frame.add(bluePanel);
-        frame.add(bluePanelGrade);
+		frame.add(orangePanel);
+        frame.add(orangePanelTransfer);
+        frame.add(orangePanelSemester);
+        frame.add(orangePanelGrade);
 		frame.add(greenPanel);
+        frame.add(greenPanelTransfer);
+        frame.add(greenPanelSemester);
         frame.add(greenPanelGrade);
         frame.add(yellowPanel);
+        frame.add(yellowPanelTransfer);
+        frame.add(yellowPanelSemester);
         frame.add(yellowPanelGrade);
         frame.add(pinkPanel);
+        frame.add(pinkPanelTransfer);
+        frame.add(pinkPanelSemester);
         frame.add(pinkPanelGrade);
       
 
-
+        
 	}	
 }
