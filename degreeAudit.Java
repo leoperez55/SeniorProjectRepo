@@ -37,15 +37,26 @@ public class DegreeAuditTool {
        
 
         // //Displays dialogue box to enter student Name
-		// String studentName = JOptionPane.showInputDialog(null,"Enter students name","UTD Degree Audit Tool", JOptionPane.PLAIN_MESSAGE);
-		// JOptionPane.showMessageDialog(null, "You entered "+studentName+" as the student's name","UTD Degree Audit Tool",JOptionPane.PLAIN_MESSAGE);
-        
-        // // JOptionPane.showMessageDialog(null, "You entered "+studentName+" as the student's name","UTD Degree Audit Tool",JOptionPane.INFORMATION_MESSAGE,
-        // // new ImageIcon(Main.class.getResource("utd icon.png")));   EXAMPLE WITH IMAGE.
+		 String studentName = JOptionPane.showInputDialog(null,"Enter students name","UTD Degree Audit Tool", JOptionPane.PLAIN_MESSAGE);
+		 //JOptionPane.showMessageDialog(null, "You entered "+studentName+" as the student's name","UTD Degree Audit Tool",JOptionPane.PLAIN_MESSAGE);
+         int name_result = JOptionPane.showConfirmDialog(null, "You entered "+studentName+" as the student's name, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_CANCEL_OPTION);
+         
+         // Yes = 0, no = 1, cancel = 2
+         // CONFIRM USER INPUT IS CORRECT
+         while(name_result == 1){
+            System.out.print("hello");
+            studentName = JOptionPane.showInputDialog(null,"Enter students name","UTD Degree Audit Tool", JOptionPane.PLAIN_MESSAGE);
+            name_result = JOptionPane.showConfirmDialog(null, "You entered "+studentName+" as the student's name, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_CANCEL_OPTION);
+         }
 		
         // //Displays dialogue box to enter student ID
-		// int studentID = Integer.parseInt(JOptionPane.showInputDialog(null,"Enter student ID ","UTD Degree Audit Tool",JOptionPane.PLAIN_MESSAGE));
-		// JOptionPane.showMessageDialog(null, "You entered "+studentID);
+		 int studentID = Integer.parseInt(JOptionPane.showInputDialog(null,"Enter student ID ","UTD Degree Audit Tool",JOptionPane.PLAIN_MESSAGE));
+		 //JOptionPane.showMessageDialog(null, "You entered "+studentID);
+         int id_result = JOptionPane.showConfirmDialog(null, "You entered "+studentID+" as the student's ID#, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_CANCEL_OPTION);
+         while(id_result == 1){
+            studentID = Integer.parseInt(JOptionPane.showInputDialog(null,"Enter student ID ","UTD Degree Audit Tool",JOptionPane.PLAIN_MESSAGE));
+            id_result = JOptionPane.showConfirmDialog(null, "You entered "+studentID+" as the student's ID#, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_CANCEL_OPTION);
+         }
 
         //Displays the comboBox for choosing students Track
         String studentTrack = (String) JOptionPane.showInputDialog(null, 
