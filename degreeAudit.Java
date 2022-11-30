@@ -338,11 +338,17 @@ public class DegreeAuditTool {
         JComboBox gradeBox4 = new JComboBox(grades);
         JComboBox gradeBox5 = new JComboBox(grades);
 
+        //"ele" is for elective classes
         JComboBox eleGradeBox = new JComboBox(grades);
         JComboBox eleGradeBox2 = new JComboBox(grades);
         JComboBox eleGradeBox3 = new JComboBox(grades);
         JComboBox eleGradeBox4 = new JComboBox(grades);
         JComboBox eleGradeBox5 = new JComboBox(grades);
+        JComboBox eleGradeBox6 = new JComboBox(grades);
+        JComboBox eleGradeBox7 = new JComboBox(grades);
+        JComboBox eleGradeBox8 = new JComboBox(grades);
+        JComboBox otherGradeBox1 = new JComboBox(grades);
+        JComboBox otherGradeBox2 = new JComboBox(grades);
 
         JComboBox semesterBox = new JComboBox(semester);
         JComboBox semesterBox2 = new JComboBox(semester);
@@ -355,6 +361,11 @@ public class DegreeAuditTool {
         JComboBox eleSemesterBox3 = new JComboBox(semester);
         JComboBox eleSemesterBox4 = new JComboBox(semester);
         JComboBox eleSemesterBox5 = new JComboBox(semester);
+        JComboBox eleSemesterBox6 = new JComboBox(semester);
+        JComboBox eleSemesterBox7 = new JComboBox(semester);
+        JComboBox eleSemesterBox8 = new JComboBox(semester);
+        JComboBox otherSemesterBox1 = new JComboBox(semester);
+        JComboBox otherSemesterBox2 = new JComboBox(semester);
        
         JComboBox transferBox = new JComboBox(transfer);
         JComboBox transferBox2 = new JComboBox(transfer);
@@ -367,7 +378,11 @@ public class DegreeAuditTool {
         JComboBox eleTransferBox3 = new JComboBox(transfer);
         JComboBox eleTransferBox4 = new JComboBox(transfer);
         JComboBox eleTransferBox5 = new JComboBox(transfer);
-
+        JComboBox eleTransferBox6 = new JComboBox(transfer);
+        JComboBox eleTransferBox7 = new JComboBox(transfer);
+        JComboBox eleTransferBox8 = new JComboBox(transfer);
+        JComboBox otherTransferBox1 = new JComboBox(transfer);
+        JComboBox otherTransferBox2 = new JComboBox(transfer);
 
         //Combo boxes for if the student can choose thier classes
         JComboBox thirdClassBox = new JComboBox(thirdClass.toArray());
@@ -378,6 +393,20 @@ public class DegreeAuditTool {
         JComboBox eleClassBox3 = new JComboBox(electiveClasses.toArray());
         JComboBox eleClassBox4 = new JComboBox(electiveClasses.toArray());
         JComboBox eleClassBox5 = new JComboBox(electiveClasses.toArray());
+        JComboBox eleClassBox6 = new JComboBox(electiveClasses.toArray());
+        JComboBox eleClassBox7 = new JComboBox(electiveClasses.toArray());
+        JComboBox eleClassBox8 = new JComboBox(electiveClasses.toArray());
+    
+
+        //add text field for user input since other requirements can be anything
+        JTextField otherClassBox1 = new JTextField();
+        //set size of textfield
+        otherClassBox1.setPreferredSize(new Dimension(340, 25));
+        JTextField otherClassBox2 = new JTextField();
+        otherClassBox2.setPreferredSize(new Dimension(340, 25));
+
+
+
 
         //### Creating Labels ###
         JLabel CourseNumberLabel = new JLabel("Course Number");
@@ -392,10 +421,17 @@ public class DegreeAuditTool {
         infoLabel.setText("CORE COURSES (15 Credit Hours)    3.19 Grade Point Average Required");
         infoLabel.setHorizontalAlignment(JLabel.CENTER);
         JLabel infoLabel2 = new JLabel();
-        infoLabel2.setText("FIVE APPROVED 6000 LEVEL ELECTIVES      (15 * Credit Hours)       3.0 Grade Point Average");
+        infoLabel2.setText("FIVE APPROVED 6000 LEVEL ELECTIVES      (15* Credit Hours)       3.0 Grade Point Average");
         infoLabel2.setHorizontalAlignment(JLabel.CENTER);
+        JLabel infoLabel3 = new JLabel();
+        infoLabel3.setText("Additional Electives ( 3 Credit Hours minimum)");
+        infoLabel3.setHorizontalAlignment(JLabel.CENTER);
+        JLabel infoLabel4 = new JLabel();
+        infoLabel4.setText("Other Requirements");
+        infoLabel4.setHorizontalAlignment(JLabel.CENTER);
 
 
+        //Core class labels
 		JLabel label_1 = new JLabel();
 		label_1.setText(class_1);
         label_1.setVerticalAlignment(JLabel.TOP);
@@ -449,13 +485,13 @@ public class DegreeAuditTool {
         //### Creating Panels ###
         JPanel labelPanel = new JPanel(new FlowLayout(FlowLayout.LEADING,50,0));
         labelPanel.setBackground(Color.YELLOW);
-        labelPanel.setBounds(0,0,730,30);
+        labelPanel.setBounds(0,0,720,30);
         labelPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 
 
         JPanel infoPanel = new JPanel();
         infoPanel.setBackground(Color.PINK);
-        infoPanel.setBounds(0, 30, 730, 30);
+        infoPanel.setBounds(0, 30, 720, 30);
         infoPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         
 
@@ -463,91 +499,71 @@ public class DegreeAuditTool {
         ////////////////CORE CLASSES PANELS//////////////////////////////////////////////////////////
 
 		JPanel firstClassPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
-		//firstClassPanel.setBackground(Color.red);
 		firstClassPanel.setBounds(0, 60, 350, 35);
         firstClassPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel firstClassPanelSemester = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		//firstClassPanelSemester.setBackground(Color.blue);
 		firstClassPanelSemester.setBounds(350, 60, 130, 35);
         firstClassPanelSemester.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel firstClassPanelTransfer = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		//firstClassPanelTransfer.setBackground(Color.red);
 		firstClassPanelTransfer.setBounds(480, 60, 120, 35);
         firstClassPanelTransfer.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel firstClassPanelGrade = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		//firstClassPanelGrade.setBackground(Color.blue);
 		firstClassPanelGrade.setBounds(600, 60, 120, 35);
         firstClassPanelGrade.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 
 
 		JPanel secondClassPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
-		//secondClassPanel.setBackground(Color.ORANGE);
 		secondClassPanel.setBounds(0, 95, 350, 35);
         secondClassPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel secondClassPanelSemester = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		//secondClassPanelSemester.setBackground(Color.blue);
 		secondClassPanelSemester.setBounds(350, 95, 130, 35);
         secondClassPanelSemester.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel secondClassPanelTransfer = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		//secondClassPanelTransfer.setBackground(Color.red);
 		secondClassPanelTransfer.setBounds(480, 95, 120, 35);
         secondClassPanelTransfer.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel secondClassPanelGrade = new JPanel(new FlowLayout(FlowLayout.CENTER));                                                           
-		//secondClassPanelGrade.setBackground(Color.blue);
 		secondClassPanelGrade.setBounds(600, 95, 120, 35);
         secondClassPanelGrade.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 
 
 		JPanel thirdClassPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
-		//thirdClassPanel.setBackground(Color.green);
 		thirdClassPanel.setBounds(0, 130, 350, 35);
         thirdClassPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel thirdClassPanelSemester = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		//thirdClassPanelSemester.setBackground(Color.blue);
 		thirdClassPanelSemester.setBounds(350, 130, 130, 35);
         thirdClassPanelSemester.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel thirdClassPanelTransfer = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		//thirdClassPanelTransfer.setBackground(Color.red);
 		thirdClassPanelTransfer.setBounds(480, 130, 120, 35);
         thirdClassPanelTransfer.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel thirdClassPanelGrade = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		//thirdClassPanelGrade.setBackground(Color.blue);
 		thirdClassPanelGrade.setBounds(600, 130, 120, 35);
         thirdClassPanelGrade.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 
 
         JPanel fourthClassPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
-	    //fourthClassPanel.setBackground(Color.yellow);
 		fourthClassPanel.setBounds(0, 165, 350, 35);
         fourthClassPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel fourthClassPanelSemester = new JPanel(new FlowLayout(FlowLayout.CENTER));
-	    //fourthClassPanelSemester.setBackground(Color.blue);
 		fourthClassPanelSemester.setBounds(350, 165, 130, 35);
         fourthClassPanelSemester.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel fourthClassPanelTransfer = new JPanel(new FlowLayout(FlowLayout.CENTER));
-	    //fourthClassPanelTransfer.setBackground(Color.red);
 		fourthClassPanelTransfer.setBounds(480, 165, 120, 35);
         fourthClassPanelTransfer.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel fourthClassPanelGrade = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		//fourthClassPanelGrade.setBackground(Color.blue);
 		fourthClassPanelGrade.setBounds(600, 165, 120, 35);
         fourthClassPanelGrade.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 
 
         JPanel fifthClassPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
-		//fifthClassPanel.setBackground(Color.pink);
 		fifthClassPanel.setBounds(0, 200, 350, 35);
         fifthClassPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel fifthClassPanelSemester = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		//fifthClassPanelSemester.setBackground(Color.blue);
 		fifthClassPanelSemester.setBounds(350, 200, 130, 35);
         fifthClassPanelSemester.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel fifthClassPanelTransfer = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		//fifthClassPanelTransfer.setBackground(Color.red);
 		fifthClassPanelTransfer.setBounds(480, 200, 120, 35);
         fifthClassPanelTransfer.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel fifthClassPanelGrade = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		//fifthClassPanelGrade.setBackground(Color.blue);
 		fifthClassPanelGrade.setBounds(600, 200, 120, 35);
         fifthClassPanelGrade.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 
@@ -555,7 +571,7 @@ public class DegreeAuditTool {
 
         JPanel infoPanel2 = new JPanel();
         infoPanel2.setBackground(Color.PINK);
-        infoPanel2.setBounds(0, 235, 730, 30);
+        infoPanel2.setBounds(0, 235, 720, 30);
         infoPanel2.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
      
 
@@ -565,15 +581,12 @@ public class DegreeAuditTool {
 		ele1ClassPanel.setBounds(0, 265, 350, 35);
         ele1ClassPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel ele1ClassPanelSemester = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		//ele1ClassPanelSemester.setBackground(Color.blue);
 		ele1ClassPanelSemester.setBounds(350, 265, 130, 35);
         ele1ClassPanelSemester.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel ele1ClassPanelTransfer = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		//ele1ClassPanelTransfer.setBackground(Color.red);
 		ele1ClassPanelTransfer.setBounds(480, 265, 120, 35);
         ele1ClassPanelTransfer.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel ele1ClassPanelGrade = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		//ele1ClassPanelGrade.setBackground(Color.blue);
 		ele1ClassPanelGrade.setBounds(600, 265, 120, 35);
         ele1ClassPanelGrade.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 
@@ -583,15 +596,12 @@ public class DegreeAuditTool {
 		ele2ClassPanel.setBounds(0, 295, 350, 35);
         ele2ClassPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel ele2ClassPanelSemester = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		//ele1ClassPanelSemester.setBackground(Color.blue);
 		ele2ClassPanelSemester.setBounds(350, 295, 130, 35);
         ele2ClassPanelSemester.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel ele2ClassPanelTransfer = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		//ele2ClassPanelTransfer.setBackground(Color.red);
 		ele2ClassPanelTransfer.setBounds(480, 295, 120, 35);
         ele2ClassPanelTransfer.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel ele2ClassPanelGrade = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		//ele2ClassPanelGrade.setBackground(Color.blue);
 		ele2ClassPanelGrade.setBounds(600, 295, 120, 35);
         ele2ClassPanelGrade.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 
@@ -601,15 +611,12 @@ public class DegreeAuditTool {
 		ele3ClassPanel.setBounds(0, 330, 350, 35);
         ele3ClassPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel ele3ClassPanelSemester = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		//ele1ClassPanelSemester.setBackground(Color.blue);
 		ele3ClassPanelSemester.setBounds(350, 330, 130, 35);
         ele3ClassPanelSemester.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel ele3ClassPanelTransfer = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		//ele3ClassPanelTransfer.setBackground(Color.red);
 		ele3ClassPanelTransfer.setBounds(480, 330, 120, 35);
         ele3ClassPanelTransfer.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel ele3ClassPanelGrade = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		//ele3ClassPanelGrade.setBackground(Color.blue);
 		ele3ClassPanelGrade.setBounds(600, 330, 120, 35);
         ele3ClassPanelGrade.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 
@@ -619,15 +626,12 @@ public class DegreeAuditTool {
 		ele4ClassPanel.setBounds(0, 365, 350, 35);
         ele4ClassPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel ele4ClassPanelSemester = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		//ele1ClassPanelSemester.setBackground(Color.blue);
 		ele4ClassPanelSemester.setBounds(350, 365, 130, 35);
         ele4ClassPanelSemester.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel ele4ClassPanelTransfer = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		//ele4ClassPanelTransfer.setBackground(Color.red);
 		ele4ClassPanelTransfer.setBounds(480, 365, 120, 35);
         ele4ClassPanelTransfer.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel ele4ClassPanelGrade = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		//ele4ClassPanelGrade.setBackground(Color.blue);
 		ele4ClassPanelGrade.setBounds(600, 365, 120, 35);
         ele4ClassPanelGrade.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 
@@ -637,20 +641,106 @@ public class DegreeAuditTool {
 		ele5ClassPanel.setBounds(0, 400, 350, 35);
         ele5ClassPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel ele5ClassPanelSemester = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		//ele1ClassPanelSemester.setBackground(Color.blue);
 		ele5ClassPanelSemester.setBounds(350, 400, 130, 35);
         ele5ClassPanelSemester.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel ele5ClassPanelTransfer = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		//ele5ClassPanelTransfer.setBackground(Color.red);
 		ele5ClassPanelTransfer.setBounds(480, 400, 120, 35);
         ele5ClassPanelTransfer.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         JPanel ele5ClassPanelGrade = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		//ele5ClassPanelGrade.setBackground(Color.blue);
 		ele5ClassPanelGrade.setBounds(600, 400, 120, 35);
         ele5ClassPanelGrade.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 
         /////////////////////////////END OF ELECTIVE CLASSES///////////////////////////////////
 
+        JPanel infoPanel3 = new JPanel();
+        infoPanel3.setBackground(Color.PINK);
+        infoPanel3.setBounds(0, 435, 720, 30);
+        infoPanel3.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+
+        /////////////////////////////START OF EXTRA ELECTIVE CLASSES PANELS///////////////////////////////////
+
+        JPanel ele6ClassPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
+		ele6ClassPanel.setBackground(Color.RED);
+		ele6ClassPanel.setBounds(0, 465, 350, 35);
+        ele6ClassPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel ele6ClassPanelSemester = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		ele6ClassPanelSemester.setBounds(350, 465, 130, 35);
+        ele6ClassPanelSemester.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel ele6ClassPanelTransfer = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		ele6ClassPanelTransfer.setBounds(480, 465, 120, 35);
+        ele6ClassPanelTransfer.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel ele6ClassPanelGrade = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		ele6ClassPanelGrade.setBounds(600, 465, 120, 35);
+        ele6ClassPanelGrade.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+
+
+        JPanel ele7ClassPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        ele7ClassPanel.setBackground(Color.RED);
+        ele7ClassPanel.setBounds(0, 500, 350, 35);
+        ele7ClassPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel ele7ClassPanelSemester = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        ele7ClassPanelSemester.setBounds(350, 500, 130, 35);
+        ele7ClassPanelSemester.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel ele7ClassPanelTransfer = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        ele7ClassPanelTransfer.setBounds(480, 500, 120, 35);
+        ele7ClassPanelTransfer.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel ele7ClassPanelGrade = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        ele7ClassPanelGrade.setBounds(600, 500, 120, 35);
+        ele7ClassPanelGrade.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        
+
+        JPanel ele8ClassPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        ele8ClassPanel.setBackground(Color.RED);
+        ele8ClassPanel.setBounds(0, 535, 350, 35);
+        ele8ClassPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel ele8ClassPanelSemester = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        ele8ClassPanelSemester.setBounds(350, 535, 130, 35);
+        ele8ClassPanelSemester.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel ele8ClassPanelTransfer = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        ele8ClassPanelTransfer.setBounds(480, 535, 120, 35);
+        ele8ClassPanelTransfer.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel ele8ClassPanelGrade = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        ele8ClassPanelGrade.setBounds(600, 535, 120, 35);
+        ele8ClassPanelGrade.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+
+        /////////////////////////////END OF EXTRA ELECTIVE CLASSES///////////////////////////////////
+
+        JPanel infoPanel4 = new JPanel();
+        infoPanel4.setBackground(Color.PINK);
+        infoPanel4.setBounds(0, 570, 720, 30);
+        infoPanel4.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+
+
+        /////////////////////////////Start of Other Requirements///////////////////////////////////
+        JPanel other1ClassPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        other1ClassPanel.setBackground(Color.RED);
+        other1ClassPanel.setBounds(0, 600, 350, 35);
+        other1ClassPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel other1ClassPanelSemester = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        other1ClassPanelSemester.setBounds(350, 600, 130, 35);
+        other1ClassPanelSemester.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel other1ClassPanelTransfer = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        other1ClassPanelTransfer.setBounds(480, 600, 120, 35);
+        other1ClassPanelTransfer.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel other1ClassPanelGrade = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        other1ClassPanelGrade.setBounds(600, 600, 120, 35);
+        other1ClassPanelGrade.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+
+        JPanel other2ClassPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        other2ClassPanel.setBackground(Color.RED);
+        other2ClassPanel.setBounds(0, 635, 350, 35);
+        other2ClassPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel other2ClassPanelSemester = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        other2ClassPanelSemester.setBounds(350, 635, 130, 35);
+        other2ClassPanelSemester.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel other2ClassPanelTransfer = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        other2ClassPanelTransfer.setBounds(480, 635, 120, 35);
+        other2ClassPanelTransfer.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel other2ClassPanelGrade = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        other2ClassPanelGrade.setBounds(600, 635, 120, 35);
+        other2ClassPanelGrade.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+
+        /////////////////////////////End of Other Requirements///////////////////////////////////
 
 
         //### Creating JFrame ###
@@ -676,6 +766,8 @@ public class DegreeAuditTool {
        
         infoPanel.add(infoLabel);
         infoPanel2.add(infoLabel2);
+        infoPanel3.add(infoLabel3);
+        infoPanel4.add(infoLabel4);
         
         firstClassPanel.add(label_1);
         firstClassPanelGrade.add(gradeBox);
@@ -747,12 +839,42 @@ public class DegreeAuditTool {
         ele5ClassPanelTransfer.add(eleTransferBox5);
         ele5ClassPanelGrade.add(eleGradeBox5);
 
+        ele6ClassPanel.add(eleClassBox6);
+        ele6ClassPanelSemester.add(eleSemesterBox6);
+        ele6ClassPanelTransfer.add(eleTransferBox6);
+        ele6ClassPanelGrade.add(eleGradeBox6);
+
+        ele7ClassPanel.add(eleClassBox7);
+        ele7ClassPanelSemester.add(eleSemesterBox7);
+        ele7ClassPanelTransfer.add(eleTransferBox7);
+        ele7ClassPanelGrade.add(eleGradeBox7);
+
+        ele8ClassPanel.add(eleClassBox8);
+        ele8ClassPanelSemester.add(eleSemesterBox8);
+        ele8ClassPanelTransfer.add(eleTransferBox8);
+        ele8ClassPanelGrade.add(eleGradeBox8);
+
+        //FOr the "other requirements" section
+        other1ClassPanel.add(otherClassBox1); 
+        other1ClassPanelSemester.add(otherSemesterBox1);
+        other1ClassPanelTransfer.add(otherTransferBox1);
+        other1ClassPanelGrade.add(otherGradeBox1);
+
+        other2ClassPanel.add(otherClassBox2);
+        other2ClassPanelSemester.add(otherSemesterBox2);
+        other2ClassPanelTransfer.add(otherTransferBox2);
+        other2ClassPanelGrade.add(otherGradeBox2);
+
+
+
 
 
         //Adding all panels to frame
         frame.add(labelPanel);
         frame.add(infoPanel);
         frame.add(infoPanel2);
+        frame.add(infoPanel3);
+        frame.add(infoPanel4);
              
         frame.add(ele1ClassPanel);
         frame.add(ele1ClassPanelTransfer);
@@ -778,6 +900,32 @@ public class DegreeAuditTool {
         frame.add(ele5ClassPanelTransfer);
         frame.add(ele5ClassPanelSemester);
         frame.add(ele5ClassPanelGrade);
+
+        frame.add(ele6ClassPanel);
+        frame.add(ele6ClassPanelTransfer);
+        frame.add(ele6ClassPanelSemester);
+        frame.add(ele6ClassPanelGrade);
+
+        frame.add(ele7ClassPanel);
+        frame.add(ele7ClassPanelTransfer);
+        frame.add(ele7ClassPanelSemester);
+        frame.add(ele7ClassPanelGrade);
+
+        frame.add(ele8ClassPanel);
+        frame.add(ele8ClassPanelTransfer);
+        frame.add(ele8ClassPanelSemester);
+        frame.add(ele8ClassPanelGrade);
+
+        frame.add(other1ClassPanel);
+        frame.add(other1ClassPanelTransfer);
+        frame.add(other1ClassPanelSemester);
+        frame.add(other1ClassPanelGrade);
+
+        frame.add(other2ClassPanel);
+        frame.add(other2ClassPanelTransfer);
+        frame.add(other2ClassPanelSemester);
+        frame.add(other2ClassPanelGrade);
+
         
         frame.add(firstClassPanel);
         frame.add(firstClassPanelTransfer);
@@ -803,8 +951,11 @@ public class DegreeAuditTool {
         frame.add(fifthClassPanelTransfer);
         frame.add(fifthClassPanelSemester);
         frame.add(fifthClassPanelGrade);
-    
-       
+        //pack all frames and components
+        frame.pack();
+        //set frame size
+        frame.setSize(750,750);
+        
       
         
       
