@@ -22,6 +22,12 @@ public class DegreeAuditTool {
 
     public static String[] grades = {null,"A+","A","A-","B+","B","B-","C+","C","P","F","I"};
     public static String[] semester = {null,"21F","21S","21U","22F","22S","22U","23F","23S","23U","24F","24S","24U"};
+    //All requirements for the master's degree must be completed within one six-year period, so i went 6 years back + buffer year
+    public static String[] admitted_semesters = {null,"15F","15S","15U","16F","16S","16U","17F","17S","17U","18F","18S","18U","19F","19S",
+                                                    "19U","20F","20S","20U","21F","21S","21U","22F","22S","22U"};
+    //All requirements for the master's degree must be completed within one six-year period, so i went 6 years forward + buffer year
+    public static String[] grad_semesters = {null,"22F","22S","22U","23F","23S","23U","24F","24S","24U","25F","25S","25U",
+                                                "26F","26S","26U", "27F","27S","27U","28F","28S","28U","29F","29S","29U"};
     public static String[] transfer = {null,"F/T"};
     //intitalize an arrayList
     public static ArrayList<String> thirdClass = new ArrayList<String>();
@@ -35,7 +41,6 @@ public class DegreeAuditTool {
 	public static void main(String[] args) {
 		
        
-
         // //Displays dialogue box to enter student Name
 		 String studentName = JOptionPane.showInputDialog(null,"Enter students name","UTD Degree Audit Tool", JOptionPane.PLAIN_MESSAGE);
 		 //JOptionPane.showMessageDialog(null, "You entered "+studentName+" as the student's name","UTD Degree Audit Tool",JOptionPane.PLAIN_MESSAGE);
@@ -52,11 +57,60 @@ public class DegreeAuditTool {
         // //Displays dialogue box to enter student ID
 		 int studentID = Integer.parseInt(JOptionPane.showInputDialog(null,"Enter student ID ","UTD Degree Audit Tool",JOptionPane.PLAIN_MESSAGE));
 		 //JOptionPane.showMessageDialog(null, "You entered "+studentID);
+
+         // CONFIRM USER INPUT IS CORRECT
          int id_result = JOptionPane.showConfirmDialog(null, "You entered "+studentID+" as the student's ID#, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_CANCEL_OPTION);
          while(id_result == 1){
             studentID = Integer.parseInt(JOptionPane.showInputDialog(null,"Enter student ID ","UTD Degree Audit Tool",JOptionPane.PLAIN_MESSAGE));
             id_result = JOptionPane.showConfirmDialog(null, "You entered "+studentID+" as the student's ID#, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_CANCEL_OPTION);
          }
+
+         //get students admitted semester
+         String  semesterAdmitted = (String) JOptionPane.showInputDialog(null, 
+        "What semester was the student admitted?",
+        "Semester Admitted",
+        JOptionPane.QUESTION_MESSAGE, 
+        null, 
+        admitted_semesters, 
+        admitted_semesters[0]);
+
+         // CONFIRM USER INPUT IS CORRECT
+        int semester_admitted_result = JOptionPane.showConfirmDialog(null, "You entered "+semesterAdmitted +" as Semester Admitted, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_CANCEL_OPTION);
+         while(semester_admitted_result  == 1){
+            semesterAdmitted = (String) JOptionPane.showInputDialog(null, 
+            "What semester was the student admitted?",
+            "Semester Admitted",
+            JOptionPane.QUESTION_MESSAGE, 
+            null, 
+            admitted_semesters, 
+            admitted_semesters[0]);
+            semester_admitted_result = JOptionPane.showConfirmDialog(null, "You entered "+semesterAdmitted +" as Semester Admitted, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_CANCEL_OPTION);
+         }
+
+        //get students anticipated graduation semester
+         String  semesterGrad = (String) JOptionPane.showInputDialog(null, 
+        "When is the student's anticipated graduation?",
+        "Anticipated Graduating Semester",
+        JOptionPane.QUESTION_MESSAGE, 
+        null, 
+        grad_semesters, 
+        grad_semesters[0]);
+
+        // CONFIRM USER INPUT IS CORRECT
+        int grad_result = JOptionPane.showConfirmDialog(null, "You entered "+ semesterGrad +" as Anticipated Graduation Semester, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_CANCEL_OPTION);
+         while(grad_result  == 1){
+             semesterGrad = (String) JOptionPane.showInputDialog(null, 
+            "When is the student's anticipated graduation?",
+            "Anticipated Graduating Semester",
+            JOptionPane.QUESTION_MESSAGE, 
+            null, 
+            grad_semesters, 
+            grad_semesters[0]);
+    
+            // CONFIRM USER INPUT IS CORRECT
+            grad_result = JOptionPane.showConfirmDialog(null, "You entered "+ semesterGrad +" as Anticipated Graduation Semester, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_CANCEL_OPTION);
+                
+        }
 
         //Displays the comboBox for choosing students Track
         String studentTrack = (String) JOptionPane.showInputDialog(null, 
@@ -66,6 +120,21 @@ public class DegreeAuditTool {
         null, 
         tracks, 
         tracks[0]);
+
+        int track_result = JOptionPane.showConfirmDialog(null, "You entered "+ studentTrack +" as Student Track, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_CANCEL_OPTION);
+        while(track_result  == 1){
+            studentTrack = (String) JOptionPane.showInputDialog(null, 
+            "What master track is the student entering?",
+            "Track",
+             JOptionPane.QUESTION_MESSAGE, 
+             null, 
+             tracks, 
+            tracks[0]);
+   
+           // CONFIRM USER INPUT IS CORRECT
+           track_result = JOptionPane.showConfirmDialog(null, "You entered "+ studentTrack +" as Student Track, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_CANCEL_OPTION);
+           
+       }
 		
         //Initializes all classes with blank strings
         String class_5 = "", class_1 = "", class_2 = "", class_3 = "", class_4 = ""; 
