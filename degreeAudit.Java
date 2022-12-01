@@ -54,7 +54,7 @@ public class DegreeAuditTool {
       first_Panel.add(idField);
 
       int result = JOptionPane.showOptionDialog(null, first_Panel, 
-               "UTD Degree Audit Tool", JOptionPane.NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, ok_button, ok_button[0]);
+               "UTD Degree Audit Tool", JOptionPane.NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, ok_button, ok_button[0]);
 
         // //Displays dialogue box to enter student Name
 		 String studentName = JOptionPane.showInputDialog(null,"Enter students name","UTD Degree Audit Tool", JOptionPane.PLAIN_MESSAGE);
