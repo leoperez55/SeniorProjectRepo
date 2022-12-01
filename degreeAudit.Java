@@ -23,6 +23,8 @@ public class DegreeAuditTool {
     public static String[] grades = {null,"A+","A","A-","B+","B","B-","C+","C","P","F","I"};
     public static String[] semester = {null,"21F","21S","21U","22F","22S","22U","23F","23S","23U","24F","24S","24U"};
     public static String[] transfer = {null,"F/T"};
+    public static String[] waiver = {null,"Waived"};
+
     //intitalize an arrayList
     public static ArrayList<String> thirdClass = new ArrayList<String>();
     public static ArrayList<String> fourthClass = new ArrayList<String>();
@@ -56,7 +58,9 @@ public class DegreeAuditTool {
         tracks, 
         tracks[0]);
 		
-        //Initializes all classes with blank strings
+        //Initializes all classes with blank strings except  5 pre-Admissions class
+        String preClass1 = "CS 5303 Computer Science I", preClass2 = "CS 5330 Computer Science II", preClass3 = "CS 5333 Discrete Structures",
+        preClass4 = "CS 5343 Algorithm Analysis & Data Structures", preClass5 = "CS 5348 Operating System Concepts";
         String class_5 = "", class_1 = "", class_2 = "", class_3 = "", class_4 = ""; 
         boolean fifth  = true;
         boolean fourth = true;
@@ -331,7 +335,7 @@ public class DegreeAuditTool {
                      break;
         }
 
-        //Creates comboBoxes
+        //Creates comboBoxes for grades
         JComboBox gradeBox = new JComboBox(grades);
         JComboBox gradeBox2 = new JComboBox(grades);
         JComboBox gradeBox3 = new JComboBox(grades);
@@ -347,9 +351,18 @@ public class DegreeAuditTool {
         JComboBox eleGradeBox6 = new JComboBox(grades);
         JComboBox eleGradeBox7 = new JComboBox(grades);
         JComboBox eleGradeBox8 = new JComboBox(grades);
+
         JComboBox otherGradeBox1 = new JComboBox(grades);
         JComboBox otherGradeBox2 = new JComboBox(grades);
 
+        JComboBox preGradeBox1 = new JComboBox(grades);
+        JComboBox preGradeBox2 = new JComboBox(grades);
+        JComboBox preGradeBox3 = new JComboBox(grades);
+        JComboBox preGradeBox4 = new JComboBox(grades);
+        JComboBox preGradeBox5 = new JComboBox(grades);
+
+
+        //Semester Combo Boxes
         JComboBox semesterBox = new JComboBox(semester);
         JComboBox semesterBox2 = new JComboBox(semester);
         JComboBox semesterBox3 = new JComboBox(semester);
@@ -364,9 +377,17 @@ public class DegreeAuditTool {
         JComboBox eleSemesterBox6 = new JComboBox(semester);
         JComboBox eleSemesterBox7 = new JComboBox(semester);
         JComboBox eleSemesterBox8 = new JComboBox(semester);
+
         JComboBox otherSemesterBox1 = new JComboBox(semester);
         JComboBox otherSemesterBox2 = new JComboBox(semester);
+
+        JComboBox preSemesterBox1 = new JComboBox(semester);
+        JComboBox preSemesterBox2 = new JComboBox(semester);
+        JComboBox preSemesterBox3 = new JComboBox(semester);
+        JComboBox preSemesterBox4 = new JComboBox(semester);
+        JComboBox preSemesterBox5 = new JComboBox(semester);
        
+        //Transfer ComboBoxes
         JComboBox transferBox = new JComboBox(transfer);
         JComboBox transferBox2 = new JComboBox(transfer);
         JComboBox transferBox3 = new JComboBox(transfer);
@@ -381,13 +402,23 @@ public class DegreeAuditTool {
         JComboBox eleTransferBox6 = new JComboBox(transfer);
         JComboBox eleTransferBox7 = new JComboBox(transfer);
         JComboBox eleTransferBox8 = new JComboBox(transfer);
+
         JComboBox otherTransferBox1 = new JComboBox(transfer);
         JComboBox otherTransferBox2 = new JComboBox(transfer);
+        //pre is for admission Pre-requisites classes
+        JComboBox preWaiverBox1 = new JComboBox(waiver);
+        JComboBox preWaiverBox2 = new JComboBox(waiver);
+        JComboBox preWaiverBox3 = new JComboBox(waiver);
+        JComboBox preWaiverBox4 = new JComboBox(waiver);
+        JComboBox preWaiverBox5 = new JComboBox(waiver);
 
-        //Combo boxes for if the student can choose thier classes
+
+        //Combo boxes for if the student can choose thier core classes
         JComboBox thirdClassBox = new JComboBox(thirdClass.toArray());
         JComboBox fourthClassBox = new JComboBox(fourthClass.toArray());
         JComboBox fifthClassBox = new JComboBox(fifthClass.toArray());
+
+        //Combo boxes for the students to choose their elective classes
         JComboBox eleClassBox = new JComboBox(electiveClasses.toArray());
         JComboBox eleClassBox2 = new JComboBox(electiveClasses.toArray());
         JComboBox eleClassBox3 = new JComboBox(electiveClasses.toArray());
@@ -398,7 +429,7 @@ public class DegreeAuditTool {
         JComboBox eleClassBox8 = new JComboBox(electiveClasses.toArray());
     
 
-        //add text field for user input since other requirements can be anything
+        //add text field for user input since "other requirements" can be anything
         JTextField otherClassBox1 = new JTextField();
         //set size of textfield
         otherClassBox1.setPreferredSize(new Dimension(340, 25));
@@ -416,7 +447,7 @@ public class DegreeAuditTool {
         JLabel grade1Label = new JLabel("      Grade");
 
         
-        //Pink info labels inbetween sections
+        //Pink info labels inbetween sections     (Spacing is for formatting purposes)
         JLabel infoLabel = new JLabel();
         infoLabel.setText("CORE COURSES (15 Credit Hours)    3.19 Grade Point Average Required");
         infoLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -429,6 +460,9 @@ public class DegreeAuditTool {
         JLabel infoLabel4 = new JLabel();
         infoLabel4.setText("Other Requirements");
         infoLabel4.setHorizontalAlignment(JLabel.CENTER);
+        JLabel infoLabel5 = new JLabel();
+        infoLabel5.setText("Admission Prerequisites                                                                       Semester                       Waiver                        Grade");
+        infoLabel5.setHorizontalAlignment(JLabel.LEADING);
 
 
         //Core class labels
@@ -443,44 +477,70 @@ public class DegreeAuditTool {
 		label_2.setVerticalAlignment(JLabel.TOP);
 		label_2.setHorizontalAlignment(JLabel.LEFT);
 
-
-        JLabel label_3 = new JLabel();
-		//If student has a choice of choosing their 3rd class this will print 
+        //If student has a choice of choosing their 3rd class this will print 
         //else the 3rd class cannot be chosen and will be displayed
+        JLabel label_3 = new JLabel();
 		if(third == true){
-            System.out.println("third Class option");
+            System.out.println("third Class option"); //for debugging
         }else{
             label_3.setText(class_3);
             label_3.setVerticalAlignment(JLabel.TOP);
             label_3.setHorizontalAlignment(JLabel.LEFT);
         }
 
-
-        JLabel label_4 = new JLabel();
         //If student has a choice of choosing their 4th class this will print 
         //else the 4th class cannot be chosen and will be displayed
+        JLabel label_4 = new JLabel();
 		if(fourth == true){
-            System.out.println("fourth Class option");
+            System.out.println("fourth Class option"); //for debugging
         }else{
             label_4.setText(class_4);
             label_4.setVerticalAlignment(JLabel.TOP);
             label_4.setHorizontalAlignment(JLabel.LEFT);
         }
   
-   
-        JLabel label_5 = new JLabel();
         //If student has a choice of choosing their 5th class this will print 
         //else the 5th class cannot be chosen and will be displayed
+        JLabel label_5 = new JLabel();
         if(fifth == true){
-            System.out.println("Fifth Class option found");
+            System.out.println("Fifth Class option found");  //for debugging
         }else{
             label_5.setText(class_5);
             label_5.setVerticalAlignment(JLabel.TOP);
             label_5.setHorizontalAlignment(JLabel.LEFT);
         }
 
-		
-		
+        //Admission Prerequisites labels
+        JLabel preClassLabel1 = new JLabel();
+        preClassLabel1.setText(preClass1);
+        preClassLabel1.setVerticalAlignment(JLabel.TOP);
+        preClassLabel1.setHorizontalAlignment(JLabel.LEFT);
+
+        JLabel preClassLabel2 = new JLabel();
+        preClassLabel2.setText(preClass2);
+        preClassLabel2.setVerticalAlignment(JLabel.TOP);
+        preClassLabel2.setHorizontalAlignment(JLabel.LEFT);
+
+        JLabel preClassLabel3 = new JLabel();
+        preClassLabel3.setText(preClass3);
+        preClassLabel3.setVerticalAlignment(JLabel.TOP);
+        preClassLabel3.setHorizontalAlignment(JLabel.LEFT);
+
+        JLabel preClassLabel4 = new JLabel();
+        preClassLabel4.setText(preClass4);
+        preClassLabel4.setVerticalAlignment(JLabel.TOP);
+        preClassLabel4.setHorizontalAlignment(JLabel.LEFT);
+
+        JLabel preClassLabel5 = new JLabel();
+        preClassLabel5.setText(preClass5);
+        preClassLabel5.setVerticalAlignment(JLabel.TOP);
+        preClassLabel5.setHorizontalAlignment(JLabel.LEFT);
+
+
+
+
+
+
 
         //### Creating Panels ###
         JPanel labelPanel = new JPanel(new FlowLayout(FlowLayout.LEADING,50,0));
@@ -742,6 +802,89 @@ public class DegreeAuditTool {
 
         /////////////////////////////End of Other Requirements///////////////////////////////////
 
+        JPanel infoPanel5 = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        infoPanel5.setBackground(Color.PINK);
+        infoPanel5.setBounds(0, 670, 720, 30);
+        infoPanel5.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+
+        /////////////////////////////Start of Admission Pre-requisites///////////////////////////////////
+
+        JPanel pre1ClassPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        //pre1ClassPanel.setBackground(Color.GRAY);
+        pre1ClassPanel.setBounds(0, 700, 350, 35);
+        pre1ClassPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel pre1ClassPanelSemester = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        pre1ClassPanelSemester.setBounds(350, 700, 130, 35);
+        pre1ClassPanelSemester.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel pre1ClassPanelWaiver = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        pre1ClassPanelWaiver.setBounds(480, 700, 120, 35);
+        pre1ClassPanelWaiver.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel pre1ClassPanelGrade = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        pre1ClassPanelGrade.setBounds(600, 700, 120, 35);
+        pre1ClassPanelGrade.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+
+        JPanel pre2ClassPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        //pre2ClassPanel.setBackground(Color.GRAY);
+        pre2ClassPanel.setBounds(0, 735, 350, 35);
+        pre2ClassPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel pre2ClassPanelSemester = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        pre2ClassPanelSemester.setBounds(350, 735, 130, 35);
+        pre2ClassPanelSemester.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel pre2ClassPanelWaiver = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        pre2ClassPanelWaiver.setBounds(480, 735, 120, 35);
+        pre2ClassPanelWaiver.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel pre2ClassPanelGrade = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        pre2ClassPanelGrade.setBounds(600, 735, 120, 35);
+        pre2ClassPanelGrade.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        
+        JPanel pre3ClassPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        //pre3ClassPanel.setBackground(Color.GRAY);
+        pre3ClassPanel.setBounds(0, 770, 350, 35);
+        pre3ClassPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel pre3ClassPanelSemester = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        pre3ClassPanelSemester.setBounds(350, 770, 130, 35);
+        pre3ClassPanelSemester.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel pre3ClassPanelWaiver = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        pre3ClassPanelWaiver.setBounds(480, 770, 120, 35);
+        pre3ClassPanelWaiver.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel pre3ClassPanelGrade = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        pre3ClassPanelGrade.setBounds(600, 770, 120, 35);
+        pre3ClassPanelGrade.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+
+        JPanel pre4ClassPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        //pre4ClassPanel.setBackground(Color.GRAY);
+        pre4ClassPanel.setBounds(0, 805, 350, 35);
+        pre4ClassPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel pre4ClassPanelSemester = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        pre4ClassPanelSemester.setBounds(350, 805, 130, 35);
+        pre4ClassPanelSemester.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel pre4ClassPanelWaiver = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        pre4ClassPanelWaiver.setBounds(480, 805, 120, 35);
+        pre4ClassPanelWaiver.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel pre4ClassPanelGrade = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        pre4ClassPanelGrade.setBounds(600, 805, 120, 35);
+        pre4ClassPanelGrade.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+
+
+        JPanel pre5ClassPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        //pre5ClassPanel.setBackground(Color.LIGHTGRAY);
+        pre5ClassPanel.setBounds(0, 840, 350, 35);
+        pre5ClassPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel pre5ClassPanelSemester = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        pre5ClassPanelSemester.setBounds(350, 840, 130, 35);
+        pre5ClassPanelSemester.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel pre5ClassPanelWaiver = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        pre5ClassPanelWaiver.setBounds(480, 840, 120, 35);
+        pre5ClassPanelWaiver.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel pre5ClassPanelGrade = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        pre5ClassPanelGrade.setBounds(600, 840, 120, 35);
+        pre5ClassPanelGrade.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        
+
+
+        /////////////////////////////End of Admission Pre-requisites///////////////////////////////////
+
+
 
         //### Creating JFrame ###
         JFrame frame = new JFrame(); 
@@ -751,7 +894,6 @@ public class DegreeAuditTool {
         frame.setLayout(null);
         ImageIcon image = new ImageIcon("utd icon.png"); //create an ImageIcon 
         frame.setIconImage(image.getImage()); //change icon of frame
-        frame.setSize(750,750); //sets the x-dimension, and y-dimension of frame 
         frame.setVisible(true); //make frame visible 
         //frame.getContentPane().setBackground(new Color(122.0f, 122.0f, 122.0f, 0.1f));
 
@@ -768,6 +910,7 @@ public class DegreeAuditTool {
         infoPanel2.add(infoLabel2);
         infoPanel3.add(infoLabel3);
         infoPanel4.add(infoLabel4);
+        infoPanel5.add(infoLabel5);
         
         firstClassPanel.add(label_1);
         firstClassPanelGrade.add(gradeBox);
@@ -854,7 +997,7 @@ public class DegreeAuditTool {
         ele8ClassPanelTransfer.add(eleTransferBox8);
         ele8ClassPanelGrade.add(eleGradeBox8);
 
-        //FOr the "other requirements" section
+        //For the "other requirements" section
         other1ClassPanel.add(otherClassBox1); 
         other1ClassPanelSemester.add(otherSemesterBox1);
         other1ClassPanelTransfer.add(otherTransferBox1);
@@ -865,17 +1008,49 @@ public class DegreeAuditTool {
         other2ClassPanelTransfer.add(otherTransferBox2);
         other2ClassPanelGrade.add(otherGradeBox2);
 
+        //For the "admission pre-requisites" section
+        pre1ClassPanel.add(preClassLabel1);
+        pre1ClassPanelSemester.add(preSemesterBox1);
+        pre1ClassPanelWaiver.add(preWaiverBox1);
+        pre1ClassPanelGrade.add(preGradeBox1);
+
+        pre2ClassPanel.add(preClassLabel2);
+        pre2ClassPanelSemester.add(preSemesterBox2);
+        pre2ClassPanelWaiver.add(preWaiverBox2);
+        pre2ClassPanelGrade.add(preGradeBox2);
+
+        pre3ClassPanel.add(preClassLabel3);
+        pre3ClassPanelSemester.add(preSemesterBox3);
+        pre3ClassPanelWaiver.add(preWaiverBox3);
+        pre3ClassPanelGrade.add(preGradeBox3);
+
+        pre4ClassPanel.add(preClassLabel4);   
+        pre4ClassPanelSemester.add(preSemesterBox4);
+        pre4ClassPanelWaiver.add(preWaiverBox4);
+        pre4ClassPanelGrade.add(preGradeBox4);
+
+        pre5ClassPanel.add(preClassLabel5);
+        pre5ClassPanelSemester.add(preSemesterBox5);
+        pre5ClassPanelWaiver.add(preWaiverBox5);
+        pre5ClassPanelGrade.add(preGradeBox5);
+
+        
+        
+        
 
 
 
 
-        //Adding all panels to frame
+
+        //Adding all panels to frame////////
         frame.add(labelPanel);
         frame.add(infoPanel);
         frame.add(infoPanel2);
         frame.add(infoPanel3);
         frame.add(infoPanel4);
-             
+        frame.add(infoPanel5);
+        
+        //Adding Elective Class Panels
         frame.add(ele1ClassPanel);
         frame.add(ele1ClassPanelTransfer);
         frame.add(ele1ClassPanelSemester);
@@ -916,6 +1091,8 @@ public class DegreeAuditTool {
         frame.add(ele8ClassPanelSemester);
         frame.add(ele8ClassPanelGrade);
 
+
+        //Adding Other Class Panels
         frame.add(other1ClassPanel);
         frame.add(other1ClassPanelTransfer);
         frame.add(other1ClassPanelSemester);
@@ -926,7 +1103,34 @@ public class DegreeAuditTool {
         frame.add(other2ClassPanelSemester);
         frame.add(other2ClassPanelGrade);
 
+        //Adding Admission Pre-requisite Panels
+        frame.add(pre1ClassPanel);
+        frame.add(pre1ClassPanelWaiver);
+        frame.add(pre1ClassPanelSemester);
+        frame.add(pre1ClassPanelGrade);
+
+        frame.add(pre2ClassPanel);
+        frame.add(pre2ClassPanelWaiver);
+        frame.add(pre2ClassPanelSemester);
+        frame.add(pre2ClassPanelGrade);
+
+        frame.add(pre3ClassPanel);
+        frame.add(pre3ClassPanelWaiver);
+        frame.add(pre3ClassPanelSemester);
+        frame.add(pre3ClassPanelGrade);
         
+        frame.add(pre4ClassPanel);
+        frame.add(pre4ClassPanelWaiver);
+        frame.add(pre4ClassPanelSemester);
+        frame.add(pre4ClassPanelGrade);
+
+        frame.add(pre5ClassPanel);
+        frame.add(pre5ClassPanelWaiver);
+        frame.add(pre5ClassPanelSemester);
+        frame.add(pre5ClassPanelGrade);
+
+
+        //Adding core classes panels
         frame.add(firstClassPanel);
         frame.add(firstClassPanelTransfer);
         frame.add(firstClassPanelSemester);
@@ -951,10 +1155,11 @@ public class DegreeAuditTool {
         frame.add(fifthClassPanelTransfer);
         frame.add(fifthClassPanelSemester);
         frame.add(fifthClassPanelGrade);
+
         //pack all frames and components
         frame.pack();
         //set frame size
-        frame.setSize(750,750);
+        frame.setSize(750,950);
         
       
         
