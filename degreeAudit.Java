@@ -39,19 +39,34 @@ public class DegreeAuditTool {
 
 
 	public static void main(String[] args) {
-		
-       
+	
+    // use this to have only OK button not cancel 
+      String[] ok_button = {"OK"};
+
+      JTextField nameField = new JTextField(15);
+      JTextField idField = new JTextField(15);
+    
+      JPanel first_Panel = new JPanel();
+      first_Panel.add(new JLabel("Student Name:"));
+      first_Panel.add(nameField);
+      first_Panel.add(Box.createHorizontalStrut(15)); // a spacer
+      first_Panel.add(new JLabel("Student UTD Student ID Number:"));
+      first_Panel.add(idField);
+
+      int result = JOptionPane.showOptionDialog(null, first_Panel, 
+               "UTD Degree Audit Tool", JOptionPane.NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, ok_button, ok_button[0]);
+
         // //Displays dialogue box to enter student Name
 		 String studentName = JOptionPane.showInputDialog(null,"Enter students name","UTD Degree Audit Tool", JOptionPane.PLAIN_MESSAGE);
 		 //JOptionPane.showMessageDialog(null, "You entered "+studentName+" as the student's name","UTD Degree Audit Tool",JOptionPane.PLAIN_MESSAGE);
-         int name_result = JOptionPane.showConfirmDialog(null, "You entered "+studentName+" as the student's name, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_CANCEL_OPTION);
+         int name_result = JOptionPane.showConfirmDialog(null, "You entered "+studentName+" as the student's name, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_OPTION);
          
          // Yes = 0, no = 1, cancel = 2
          // CONFIRM USER INPUT IS CORRECT
          while(name_result == 1){
             System.out.print("hello");
             studentName = JOptionPane.showInputDialog(null,"Enter students name","UTD Degree Audit Tool", JOptionPane.PLAIN_MESSAGE);
-            name_result = JOptionPane.showConfirmDialog(null, "You entered "+studentName+" as the student's name, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_CANCEL_OPTION);
+            name_result = JOptionPane.showConfirmDialog(null, "You entered "+studentName+" as the student's name, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_OPTION);
          }
 		
         // //Displays dialogue box to enter student ID
@@ -59,10 +74,10 @@ public class DegreeAuditTool {
 		 //JOptionPane.showMessageDialog(null, "You entered "+studentID);
 
          // CONFIRM USER INPUT IS CORRECT
-         int id_result = JOptionPane.showConfirmDialog(null, "You entered "+studentID+" as the student's ID#, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_CANCEL_OPTION);
+         int id_result = JOptionPane.showConfirmDialog(null, "You entered "+studentID+" as the student's ID#, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_OPTION);
          while(id_result == 1){
             studentID = Integer.parseInt(JOptionPane.showInputDialog(null,"Enter student ID ","UTD Degree Audit Tool",JOptionPane.PLAIN_MESSAGE));
-            id_result = JOptionPane.showConfirmDialog(null, "You entered "+studentID+" as the student's ID#, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_CANCEL_OPTION);
+            id_result = JOptionPane.showConfirmDialog(null, "You entered "+studentID+" as the student's ID#, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_OPTION);
          }
 
          //get students admitted semester
@@ -75,7 +90,7 @@ public class DegreeAuditTool {
         admitted_semesters[0]);
 
          // CONFIRM USER INPUT IS CORRECT
-        int semester_admitted_result = JOptionPane.showConfirmDialog(null, "You entered "+semesterAdmitted +" as Semester Admitted, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_CANCEL_OPTION);
+        int semester_admitted_result = JOptionPane.showConfirmDialog(null, "You entered "+ semesterAdmitted +" as Semester Admitted, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_OPTION);
          while(semester_admitted_result  == 1){
             semesterAdmitted = (String) JOptionPane.showInputDialog(null, 
             "What semester was the student admitted?",
@@ -84,7 +99,7 @@ public class DegreeAuditTool {
             null, 
             admitted_semesters, 
             admitted_semesters[0]);
-            semester_admitted_result = JOptionPane.showConfirmDialog(null, "You entered "+semesterAdmitted +" as Semester Admitted, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_CANCEL_OPTION);
+            semester_admitted_result = JOptionPane.showConfirmDialog(null, "You entered "+ semesterAdmitted +" as Semester Admitted, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_OPTION);
          }
 
         //get students anticipated graduation semester
@@ -97,7 +112,7 @@ public class DegreeAuditTool {
         grad_semesters[0]);
 
         // CONFIRM USER INPUT IS CORRECT
-        int grad_result = JOptionPane.showConfirmDialog(null, "You entered "+ semesterGrad +" as Anticipated Graduation Semester, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_CANCEL_OPTION);
+        int grad_result = JOptionPane.showConfirmDialog(null, "You entered "+ semesterGrad +" as Anticipated Graduation Semester, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_OPTION);
          while(grad_result  == 1){
              semesterGrad = (String) JOptionPane.showInputDialog(null, 
             "When is the student's anticipated graduation?",
@@ -108,7 +123,7 @@ public class DegreeAuditTool {
             grad_semesters[0]);
     
             // CONFIRM USER INPUT IS CORRECT
-            grad_result = JOptionPane.showConfirmDialog(null, "You entered "+ semesterGrad +" as Anticipated Graduation Semester, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_CANCEL_OPTION);
+            grad_result = JOptionPane.showConfirmDialog(null, "You entered "+ semesterGrad +" as Anticipated Graduation Semester, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_OPTION);
                 
         }
 
@@ -121,7 +136,7 @@ public class DegreeAuditTool {
         tracks, 
         tracks[0]);
 
-        int track_result = JOptionPane.showConfirmDialog(null, "You entered "+ studentTrack +" as Student Track, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_CANCEL_OPTION);
+        int track_result = JOptionPane.showConfirmDialog(null, "You entered "+ studentTrack +" as Student Track, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_OPTION);
         while(track_result  == 1){
             studentTrack = (String) JOptionPane.showInputDialog(null, 
             "What master track is the student entering?",
@@ -132,7 +147,7 @@ public class DegreeAuditTool {
             tracks[0]);
    
            // CONFIRM USER INPUT IS CORRECT
-           track_result = JOptionPane.showConfirmDialog(null, "You entered "+ studentTrack +" as Student Track, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_CANCEL_OPTION);
+           track_result = JOptionPane.showConfirmDialog(null, "You entered "+ studentTrack +" as Student Track, is that correct? (Click no to re-enter)","UTD Degree Audit Tool", JOptionPane.YES_NO_OPTION);
            
        }
 		
