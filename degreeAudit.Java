@@ -26,6 +26,13 @@ public class DegreeAuditTool {
     public static String[] semester = {null,"21F","21S","21U","22F","22S","22U","23F","23S","23U","24F","24S","24U"};
     public static String[] transfer = {null,"F/T"};
     public static String[] waiver = {null,"Waived"};
+     //All requirements for the master's degree must be completed within one six-year period, so i went 6 years back + buffer year
+     public static String[] admitted_semesters = {null,"15F","15S","15U","16F","16S","16U","17F","17S","17U","18F","18S","18U","19F","19S",
+     "19U","20F","20S","20U","21F","21S","21U","22F","22S","22U"};
+    //All requirements for the master's degree must be completed within one six-year period, so i went 6 years forward + buffer year
+    public static String[] grad_semesters = {null,"22F","22S","22U","23F","23S","23U","24F","24S","24U","25F","25S","25U",
+    "26F","26S","26U", "27F","27S","27U","28F","28S","28U","29F","29S","29U"};
+    
 
     //intitalize an arrayList
     public static ArrayList<String> thirdClass = new ArrayList<String>();
