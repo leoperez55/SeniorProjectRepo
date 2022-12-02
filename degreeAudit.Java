@@ -37,7 +37,49 @@ public class DegreeAuditTool {
 
 	public static void main(String[] args) {
 		
+       // use this to have custom button options 
+      String[] ok_button = {"OK"};
+      String[] ok_back_buttons = {"OK", "BACK"};
+
+      //FIRST PANEL IS FOR NAME AND ID 
+      JTextField nameField = new JTextField(15);
+      JTextField idField = new JTextField(15);
+    
+      JPanel first_Panel = new JPanel();
+      first_Panel.add(new JLabel("Student Name:"));
+      first_Panel.add(nameField);
+      first_Panel.add(Box.createHorizontalStrut(15)); // a spacer
+      first_Panel.add(new JLabel("Student UTD Student ID Number:"));
+      first_Panel.add(idField);
+
+      int result = JOptionPane.showOptionDialog(null, first_Panel, 
+               "UTD Degree Audit Tool", JOptionPane.NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, ok_button, ok_button[0]);
+
+    
+        //SECOND PANEL IS FOR SEMESTER ADMITTED AND EXPECTED GRADUATION
+        JComboBox semAdmit = new JComboBox(admitted_semesters);
+        JComboBox semGrad = new JComboBox(grad_semesters);
+        JPanel second_Panel = new JPanel();
+        second_Panel.add(new JLabel("Semester Admitted:"));
+        second_Panel.add(semAdmit);
+        second_Panel.add(Box.createHorizontalStrut(15)); // a spacer
+        second_Panel.add(new JLabel("Expected Graduation:"));
+        second_Panel.add(semGrad);
        
+
+        int result2 = JOptionPane.showOptionDialog(null, second_Panel, 
+               "UTD Degree Audit Tool", JOptionPane.NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, ok_back_buttons, ok_back_buttons[1]);
+
+               while(result2  == 1) {
+               result = JOptionPane.showOptionDialog(null, first_Panel, 
+                         "UTD Degree Audit Tool", JOptionPane.NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, ok_button, ok_button[0]);
+               result2 = JOptionPane.showOptionDialog(null, second_Panel, 
+                         "UTD Degree Audit Tool", JOptionPane.NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, ok_back_buttons, ok_back_buttons[1]);
+                if(result2  == 0){
+                       break;
+                 }
+                         
+               }
 
         // //Displays dialogue box to enter student Name
 		// String studentName = JOptionPane.showInputDialog(null,"Enter students name","UTD Degree Audit Tool", JOptionPane.PLAIN_MESSAGE);
