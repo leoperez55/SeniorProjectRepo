@@ -13,12 +13,14 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.util.*;
 
-
+@SuppressWarnings("unchecked")
 public class DegreeAuditTool {
 
 
     public static String[] tracks = { "Data Sciences", "Cyber Security", "Intelligent Systems", "Interactive Computing",
                                             "Networks and Telecommunications", "Systems Track", "Traditional Computer Science"};
+    public static String[] preClasses = { null,"CS 5390 Computer Networks", "SE 5354 Software Engineering", "CS 5349 Automata Theory",
+                                            "CS 3341/SE 3341 Probability and Stats. in CS and SE"};
 
     public static String[] grades = {null,"A+","A","A-","B+","B","B-","C+","C","P","F","I"};
     public static String[] semester = {null,"21F","21S","21U","22F","22S","22U","23F","23S","23U","24F","24S","24U"};
@@ -30,7 +32,6 @@ public class DegreeAuditTool {
     public static ArrayList<String> fourthClass = new ArrayList<String>();
     public static ArrayList<String> fifthClass = new ArrayList<String>();
     public static ArrayList<String> electiveClasses = new ArrayList<String>();    
-
 
 
 
@@ -82,7 +83,7 @@ public class DegreeAuditTool {
                                     fifthClass.add("CS 6327 Video Analytics");
                                     fifthClass.add("CS 6347 Statistical Methods in AI and Machine Learning");
                                     fifthClass.add("CS 6360 Database Design");
-                                    fifthClass.add("CS 6301 Special Topics in Computer Science [when topic is Social Network Analytics");
+                                    fifthClass.add("CS 6301 Special Topics in CS [when topic is Social Network Analytics]");
                                     
 
                                     electiveClasses.add(null);
@@ -123,7 +124,7 @@ public class DegreeAuditTool {
 
                                     electiveClasses.add(null);
                                     electiveClasses.add("CS 6313 Statistical Methods for Data Science");
-                                    electiveClasses.add("CS 6301 Special Topics in Computer Science [when topic is Social Network Analytics");
+                                    electiveClasses.add("CS 6301 Special Topics in CS [when topic is Social Network Analytics]");
                                     electiveClasses.add("CS 6350 Big Data Management and Analytics");
                                     electiveClasses.add("CS 6320 Natural Language Processing");
                                     electiveClasses.add("CS 6327 Video Analytics");
@@ -156,7 +157,7 @@ public class DegreeAuditTool {
                                     fifthClass.add("CS 6378 Advanced Operating Systems");
                                  
                                     electiveClasses.add(null);
-                                    electiveClasses.add("CS 6301 Special Topics in Computer Science [when topic is Social Network Analytics");
+                                    electiveClasses.add("CS 6301 Special Topics in CS [when topic is Social Network Analytics]");
                                     electiveClasses.add("CS 6313 Statistical Methods for Data Science");
                                     electiveClasses.add("CS 6350 Big Data Management and Analytics");
                                     electiveClasses.add("CS 6320 Natural Language Processing");
@@ -201,7 +202,7 @@ public class DegreeAuditTool {
                                     fifthClass.add("CS 6366 Computer Graphics");
 
                                     electiveClasses.add(null);
-                                    electiveClasses.add("CS 6301 Special Topics in Computer Science [when topic is Social Network Analytics");
+                                    electiveClasses.add("CS 6301 Special Topics in CS [when topic is Social Network Analytics]");
                                     electiveClasses.add("CS 6313 Statistical Methods for Data Science");
                                     electiveClasses.add("CS 6350 Big Data Management and Analytics");
                                     electiveClasses.add("CS 6320 Natural Language Processing");
@@ -250,7 +251,7 @@ public class DegreeAuditTool {
                                     electiveClasses.add("CS 6366 Computer Graphics");
                                     electiveClasses.add("CS 6353 Compiler Construction");
                                     electiveClasses.add("CS 6371 Advanced Programming Languages");  
-                                    electiveClasses.add("CS 6301 Special Topics in Computer Science [when topic is Social Network Analytics");
+                                    electiveClasses.add("CS 6301 Special Topics in CS [when topic is Social Network Analytics]");
 
                                     break;
 
@@ -287,7 +288,7 @@ public class DegreeAuditTool {
                                     electiveClasses.add("CS 6366 Computer Graphics");
                                     electiveClasses.add("CS 6353 Compiler Construction");
                                     electiveClasses.add("CS 6371 Advanced Programming Languages");  
-                                    electiveClasses.add("CS 6301 Special Topics in Computer Science [when topic is Social Network Analytics");
+                                    electiveClasses.add("CS 6301 Special Topics in CS [when topic is Social Network Analytics]");
 
                                     break;
 
@@ -327,7 +328,7 @@ public class DegreeAuditTool {
                                     electiveClasses.add("CS 6366 Computer Graphics");
                                     electiveClasses.add("CS 6353 Compiler Construction");
                                     electiveClasses.add("CS 6371 Advanced Programming Languages");  
-                                    electiveClasses.add("CS 6301 Special Topics in Computer Science [when topic is Social Network Analytics");
+                                    electiveClasses.add("CS 6301 Special Topics in CS [when topic is Social Network Analytics]");
 
                                     break;
 
@@ -360,6 +361,8 @@ public class DegreeAuditTool {
         JComboBox preGradeBox3 = new JComboBox(grades);
         JComboBox preGradeBox4 = new JComboBox(grades);
         JComboBox preGradeBox5 = new JComboBox(grades);
+        JComboBox preGradeBox6 = new JComboBox(grades);  //Depends on student track
+        JComboBox preGradeBox7 = new JComboBox(grades);  //Depends on student track
 
 
         //Semester Combo Boxes
@@ -386,6 +389,8 @@ public class DegreeAuditTool {
         JComboBox preSemesterBox3 = new JComboBox(semester);
         JComboBox preSemesterBox4 = new JComboBox(semester);
         JComboBox preSemesterBox5 = new JComboBox(semester);
+        JComboBox preSemesterBox6 = new JComboBox(semester);   //Depends on student track
+        JComboBox preSemesterBox7 = new JComboBox(semester);   //Depends on student track
        
         //Transfer ComboBoxes
         JComboBox transferBox = new JComboBox(transfer);
@@ -411,6 +416,8 @@ public class DegreeAuditTool {
         JComboBox preWaiverBox3 = new JComboBox(waiver);
         JComboBox preWaiverBox4 = new JComboBox(waiver);
         JComboBox preWaiverBox5 = new JComboBox(waiver);
+        JComboBox preWaiverBox6 = new JComboBox(waiver);  //Depends on student track
+        JComboBox preWaiverBox7 = new JComboBox(waiver);  //Depends on student track
 
 
         //Combo boxes for if the student can choose thier core classes
@@ -427,6 +434,10 @@ public class DegreeAuditTool {
         JComboBox eleClassBox6 = new JComboBox(electiveClasses.toArray());
         JComboBox eleClassBox7 = new JComboBox(electiveClasses.toArray());
         JComboBox eleClassBox8 = new JComboBox(electiveClasses.toArray());
+
+        //Combo boxes for the students to choose their extra classes depending on their track 
+        JComboBox preClassBox1 = new JComboBox(preClasses);
+        JComboBox preClassBox2 = new JComboBox(preClasses);
     
 
         //add text field for user input since "other requirements" can be anything
@@ -879,12 +890,35 @@ public class DegreeAuditTool {
         JPanel pre5ClassPanelGrade = new JPanel(new FlowLayout(FlowLayout.CENTER));
         pre5ClassPanelGrade.setBounds(600, 840, 120, 35);
         pre5ClassPanelGrade.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
-        
 
+        JPanel pre6ClassPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        pre6ClassPanel.setBounds(0, 875, 350, 35);
+        pre6ClassPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel pre6ClassPanelSemester = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        pre6ClassPanelSemester.setBounds(350, 875, 130, 35);
+        pre6ClassPanelSemester.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel pre6ClassPanelWaiver = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        pre6ClassPanelWaiver.setBounds(480, 875, 120, 35);
+        pre6ClassPanelWaiver.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel pre6ClassPanelGrade = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        pre6ClassPanelGrade.setBounds(600, 875, 120, 35);
+        pre6ClassPanelGrade.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 
+        JPanel pre7ClassPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        pre7ClassPanel.setBounds(0, 910, 350, 35);
+        pre7ClassPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel pre7ClassPanelSemester = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        pre7ClassPanelSemester.setBounds(350, 910, 130, 35);
+        pre7ClassPanelSemester.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel pre7ClassPanelWaiver = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        pre7ClassPanelWaiver.setBounds(480, 910, 120, 35);
+        pre7ClassPanelWaiver.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        JPanel pre7ClassPanelGrade = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        pre7ClassPanelGrade.setBounds(600, 910, 120, 35);
+        pre7ClassPanelGrade.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
         /////////////////////////////End of Admission Pre-requisites///////////////////////////////////
 
-
+        
 
         //### Creating JFrame ###
         JFrame frame = new JFrame(); 
@@ -1034,13 +1068,20 @@ public class DegreeAuditTool {
         pre5ClassPanelWaiver.add(preWaiverBox5);
         pre5ClassPanelGrade.add(preGradeBox5);
 
+        pre6ClassPanel.add(preClassBox1);
+        pre6ClassPanelSemester.add(preSemesterBox6);
+        pre6ClassPanelWaiver.add(preWaiverBox6);
+        pre6ClassPanelGrade.add(preGradeBox6);
+
+        pre7ClassPanel.add(preClassBox2);
+        pre7ClassPanelSemester.add(preSemesterBox7);
+        pre7ClassPanelWaiver.add(preWaiverBox7);
+        pre7ClassPanelGrade.add(preGradeBox7);
+
+
+
         
         
-        
-
-
-
-
 
         //Adding all panels to frame////////
         frame.add(labelPanel);
@@ -1129,6 +1170,16 @@ public class DegreeAuditTool {
         frame.add(pre5ClassPanelSemester);
         frame.add(pre5ClassPanelGrade);
 
+        frame.add(pre6ClassPanel);
+        frame.add(pre6ClassPanelWaiver);
+        frame.add(pre6ClassPanelSemester);
+        frame.add(pre6ClassPanelGrade);
+        
+        frame.add(pre7ClassPanel);
+        frame.add(pre7ClassPanelWaiver);
+        frame.add(pre7ClassPanelSemester);
+        frame.add(pre7ClassPanelGrade);
+
 
         //Adding core classes panels
         frame.add(firstClassPanel);
@@ -1156,10 +1207,14 @@ public class DegreeAuditTool {
         frame.add(fifthClassPanelSemester);
         frame.add(fifthClassPanelGrade);
 
+    
         //pack all frames and components
         frame.pack();
         //set frame size
-        frame.setSize(750,950);
+        frame.setSize(750,1000);
+
+        //generate frame at the center of the screen
+        frame.setLocationRelativeTo(null);
         
       
         
