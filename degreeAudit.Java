@@ -88,16 +88,33 @@ public class DegreeAuditTool {
                          
                }
 
-        // //Displays dialogue box to enter student Name
-		// String studentName = JOptionPane.showInputDialog(null,"Enter students name","UTD Degree Audit Tool", JOptionPane.PLAIN_MESSAGE);
-		// JOptionPane.showMessageDialog(null, "You entered "+studentName+" as the student's name","UTD Degree Audit Tool",JOptionPane.PLAIN_MESSAGE);
-        
-        // // JOptionPane.showMessageDialog(null, "You entered "+studentName+" as the student's name","UTD Degree Audit Tool",JOptionPane.INFORMATION_MESSAGE,
-        // // new ImageIcon(Main.class.getResource("utd icon.png")));   EXAMPLE WITH IMAGE.
-		
-        // //Displays dialogue box to enter student ID
-		// int studentID = Integer.parseInt(JOptionPane.showInputDialog(null,"Enter student ID ","UTD Degree Audit Tool",JOptionPane.PLAIN_MESSAGE));
-		// JOptionPane.showMessageDialog(null, "You entered "+studentID);
+         //THIRD PANEL IS TO GET TRACK 
+           //    JComboBox chooseTrack = new JComboBox(tracks);
+            //   JPanel third_Panel = new JPanel();
+            //   third_Panel.add(new JLabel("Chosen Track:"));
+            //   third_Panel.add(chooseTrack);
+
+            //   int result3 = JOptionPane.showOptionDialog(null, third_Panel, 
+            //   "UTD Degree Audit Tool", JOptionPane.NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, ok_back_buttons, ok_back_buttons[1]);
+
+             //  while(result3  == 1) {
+             //   result2 = JOptionPane.showOptionDialog(null, second_Panel, 
+             //             "UTD Degree Audit Tool", JOptionPane.NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, ok_back_buttons, ok_back_buttons[1]);
+             //   result3 = JOptionPane.showOptionDialog(null, third_Panel, 
+             //             "UTD Degree Audit Tool", JOptionPane.NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, ok_back_buttons, ok_back_buttons[1]);
+              //   if(result3  == 0){
+              //          break;
+              //    }
+                          
+              //  }
+
+              // System.out.println(result3);
+              //  String track_result = tracks[result3];
+            //    System.out.println(track_result);
+             //  String studentTrack = (String) JOptionPane.showOptionDialog(null, third_Panel, 
+             //  "UTD Degree Audit Tool", JOptionPane.NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, ok_back_buttons, ok_back_buttons[1]);
+           
+
 
         //Displays the comboBox for choosing students Track
         String studentTrack = (String) JOptionPane.showInputDialog(null, 
@@ -107,7 +124,8 @@ public class DegreeAuditTool {
         null, 
         tracks, 
         tracks[0]);
-		
+	   // System.out.println(studentTrack);
+
         //Initializes all classes with blank strings except  5 pre-Admissions class
         String preClass1 = "CS 5303 Computer Science I", preClass2 = "CS 5330 Computer Science II", preClass3 = "CS 5333 Discrete Structures",
         preClass4 = "CS 5343 Algorithm Analysis & Data Structures", preClass5 = "CS 5348 Operating System Concepts";
