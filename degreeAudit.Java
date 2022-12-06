@@ -60,7 +60,7 @@ public class DegreeAuditTool {
       first_Panel.add(idField);
 
       int result = JOptionPane.showOptionDialog(null, first_Panel, 
-               "UTD Degree Audit Tool", JOptionPane.NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, ok_button, ok_button[0]);
+               "UTD Degree Audit Tool", JOptionPane.NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, ok_button, ok_button[0]);
 
     
         //SECOND PANEL IS FOR SEMESTER ADMITTED AND EXPECTED GRADUATION
@@ -75,7 +75,7 @@ public class DegreeAuditTool {
        
 
         int result2 = JOptionPane.showOptionDialog(null, second_Panel, 
-               "UTD Degree Audit Tool", JOptionPane.NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, ok_back_buttons, ok_back_buttons[1]);
+               "UTD Degree Audit Tool", JOptionPane.NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, ok_back_buttons, ok_back_buttons[1]);
 
                while(result2  == 1) {
                result = JOptionPane.showOptionDialog(null, first_Panel, 
